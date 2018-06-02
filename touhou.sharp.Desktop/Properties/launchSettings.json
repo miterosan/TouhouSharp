@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "Game": {
+      "commandName": "Project"
+    },
+    "VisualTests": {
+      "commandName": "Project",
+      "commandLineArgs": "--tests"
+    },
+    "Editor": {
+      "commandName": "Project",
+      "commandLineArgs": "--workspace ..\\..\\..\\..\\eden.Game.Story\\"
+    }
+  }
+}

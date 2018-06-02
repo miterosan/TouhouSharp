@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\touhou.sharp.Game.props" />
+  <PropertyGroup Label="Project">
+    <TargetFrameworks>net471;netcoreapp2.0</TargetFrameworks>
+    <AssemblyTitle>touhou.sharp.Desktop</AssemblyTitle>
+    <Description>TouhouSharp's executable</Description>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationIcon />
+    <OutputType>WinExe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj" />
+    <ProjectReference Include="..\Symcol.Core\Symcol.Core.csproj" />
+    <ProjectReference Include="..\touhou.sharp.Game.Resources\touhou.sharp.Game.Resources.csproj" />
+    <ProjectReference Include="..\touhou.sharp.Game\touhou.sharp.Game.csproj" />
+  </ItemGroup>
+</Project>
