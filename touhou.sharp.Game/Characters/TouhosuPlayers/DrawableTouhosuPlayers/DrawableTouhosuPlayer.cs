@@ -1,9 +1,9 @@
-﻿using osu.Framework.Allocation;
+﻿using System;
+using osu.Framework.Allocation;
 using osu.Framework.Configuration;
-using System;
-using touhou.sharp.Characters.Characters.THSharpPlayers.DrawableTHSharpPlayers;
+using touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers;
 
-namespace touhou.sharp.Characters.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableTouhosuPlayer : DrawableTHSharpPlayer
     {

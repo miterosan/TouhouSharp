@@ -1,8 +1,8 @@
-﻿using OpenTK;
+﻿using System;
 using osu.Framework.Graphics;
-using System;
+using OpenTK;
 
-namespace touhou.sharp.Characters.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableReimu : DrawableTouhosuPlayer
     {

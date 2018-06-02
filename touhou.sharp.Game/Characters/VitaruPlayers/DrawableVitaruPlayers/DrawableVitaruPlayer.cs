@@ -1,5 +1,5 @@
-﻿using OpenTK;
-using OpenTK.Graphics;
+﻿using System;
+using System.Collections.Generic;
 using osu.Framework.Allocation;
 using osu.Framework.Audio.Track;
 using osu.Framework.Configuration;
@@ -8,13 +8,12 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
-using Symcol.Core.Networking;
+using OpenTK;
+using OpenTK.Graphics;
 using Symcol.Core.NeuralNetworking;
-using System;
-using System.Collections.Generic;
 using touhou.sharp.Game.Config;
 
-namespace touhou.sharp.Characters.Characters.THSharpPlayers.DrawableTHSharpPlayers
+namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
 {
     public class DrawableTHSharpPlayer : Character
     {

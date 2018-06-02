@@ -1,19 +1,18 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
-using OpenTK.Graphics;
-using osu.Framework.Graphics.Sprites;
-using osu.Framework.Graphics.Textures;
+﻿using System;
 using osu.Framework.Allocation;
+using osu.Framework.Extensions.Color4Extensions;
+using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Extensions.Color4Extensions;
-using Symcol.Core.GameObjects;
+using osu.Framework.Graphics.Sprites;
+using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
-using osu.Game.Rulesets.THSharp.Characters.Pieces;
-using System;
+using OpenTK;
+using OpenTK.Graphics;
+using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
 
-namespace touhou.sharp.Characters.Characters
+namespace touhou.sharp.Game.Characters
 {
     public abstract class Character : SymcolContainer
     {

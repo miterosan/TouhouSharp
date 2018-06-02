@@ -1,11 +1,11 @@
-﻿using OpenTK;
-using osu.Framework.Audio.Track;
+﻿using osu.Framework.Audio.Track;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
+using OpenTK;
 using OpenTK.Graphics;
 
-namespace touhou.sharp.Characters.Characters
+namespace touhou.sharp.Game.Characters
 {
     public class Enemy : Character
     {

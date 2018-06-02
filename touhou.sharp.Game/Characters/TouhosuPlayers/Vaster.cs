@@ -1,4 +1,4 @@
-﻿namespace touhou.sharp.Characters.Characters.TouhosuPlayers
+﻿namespace touhou.sharp.Game.Characters.TouhosuPlayers
 {
     public class Vaster : TouhosuPlayer
     {

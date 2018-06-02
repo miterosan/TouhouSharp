@@ -1,12 +1,12 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
-using System;
+﻿using System;
 using osu.Framework.Audio.Track;
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
-using osu.Framework.Graphics.Sprites;
+using OpenTK;
 
-namespace touhou.sharp.Characters.Characters
+namespace touhou.sharp.Game.Characters
 {
     public class Boss : Character
     {

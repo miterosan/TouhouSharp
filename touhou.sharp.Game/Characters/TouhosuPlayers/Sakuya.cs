@@ -1,7 +1,6 @@
 ﻿using OpenTK.Graphics;
-using osu.Game.Graphics;
 
-namespace touhou.sharp.Characters.Characters.TouhosuPlayers
+namespace touhou.sharp.Game.Characters.TouhosuPlayers
 {
     public class Sakuya : TouhosuPlayer
     {

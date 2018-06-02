@@ -1,6 +1,6 @@
 ﻿using osu.Framework.Graphics;
 
-namespace touhou.sharp.Characters.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableAlice : DrawableTouhosuPlayer
     {

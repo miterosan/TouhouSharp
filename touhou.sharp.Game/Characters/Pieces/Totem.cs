@@ -1,9 +1,9 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
+using OpenTK;
 using Symcol.Core.Graphics.Containers;
 
-namespace touhou.sharp.Characters.Characters.Pieces
+namespace touhou.sharp.Game.Characters.Pieces
 {
     public class Totem : SymcolContainer
     {

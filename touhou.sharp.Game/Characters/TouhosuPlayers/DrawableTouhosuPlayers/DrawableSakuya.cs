@@ -1,4 +1,4 @@
-﻿using OpenTK.Graphics;
+﻿using System;
 using osu.Framework.Allocation;
 using osu.Framework.Audio;
 using osu.Framework.Configuration;
@@ -7,9 +7,8 @@ using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
 using osu.Framework.Timing;
 using Symcol.Core.Graphics.Sprites;
-using System;
 
-namespace touhou.sharp.Characters.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableSakuya : DrawableTouhosuPlayer
     {

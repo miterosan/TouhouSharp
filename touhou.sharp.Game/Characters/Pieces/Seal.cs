@@ -1,18 +1,18 @@
-﻿using OpenTK.Graphics;
+﻿using osu.Framework.Allocation;
+using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Effects;
 using osu.Framework.Graphics.Sprites;
-using OpenTK;
-using osu.Framework.Allocation;
-using osu.Framework.Extensions.Color4Extensions;
-using osu.Framework.Platform;
 using osu.Framework.Graphics.UserInterface;
 using osu.Framework.MathUtils;
-using osu.Framework.Graphics.Effects;
-using touhou.sharp.Characters.Characters.TouhosuPlayers.DrawableTouhosuPlayers;
-using touhou.sharp.Characters.Characters.THSharpPlayers.DrawableTHSharpPlayers;
+using osu.Framework.Platform;
+using OpenTK;
+using OpenTK.Graphics;
+using touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers;
+using touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers;
 
-namespace touhou.sharp.Characters.Characters.Pieces
+namespace touhou.sharp.Game.Characters.Pieces
 {
     public class Seal : Container
     {
