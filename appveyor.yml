@@ -16,9 +16,15 @@ before_build:
 environment:
   TargetFramework: net471
 build:
-  project: osu.sln
+  project: Touhou Sharp.sln
   parallel: true
   verbosity: minimal
 after_build:
   - cmd: inspectcode --o="inspectcodereport.xml" --projects:touhou.sharp.Game* --caches-home="inspectcode" "Touhou Sharp.sln" > NUL
   - cmd: NVika parsereport "inspectcodereport.xml" --treatwarningsaserrors
+on_success:
+  - ps: Invoke-RestMethod https://raw.githubusercontent.com/k3rn31p4nic/appveyor-discord-webhook/master/send.ps1 -o send.ps1
+  - ps: ./send.ps1 success $env:WEBHOOK_URL
+on_failure:
+  - ps: Invoke-RestMethod https://raw.githubusercontent.com/k3rn31p4nic/appveyor-discord-webhook/master/send.ps1 -o send.ps1
+  - ps: ./send.ps1 failure $env:WEBHOOK_URL
