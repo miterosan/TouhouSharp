@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "touhou.sharp.Desktop", "tou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu.Framework", "osu-framework\osu.Framework\osu.Framework.csproj", "{181362E3-FCA0-4DF3-9919-B26FAD4F1FF0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "touhou.sharp.Characters", "touhou.sharp.Characters\touhou.sharp.Characters.csproj", "{61BED751-085E-471E-B1FD-09BB64E735F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{181362E3-FCA0-4DF3-9919-B26FAD4F1FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{181362E3-FCA0-4DF3-9919-B26FAD4F1FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{181362E3-FCA0-4DF3-9919-B26FAD4F1FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61BED751-085E-471E-B1FD-09BB64E735F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61BED751-085E-471E-B1FD-09BB64E735F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61BED751-085E-471E-B1FD-09BB64E735F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61BED751-085E-471E-B1FD-09BB64E735F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

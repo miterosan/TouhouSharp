@@ -12,6 +12,7 @@
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj" />
     <ProjectReference Include="..\touhou.sharp.Game.Resources\touhou.sharp.Game.Resources.csproj" />
     <ProjectReference Include="..\Symcol.Core\Symcol.Core.csproj" />
+    <ProjectReference Include="..\touhou.sharp.Game\touhou.sharp.Game.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
