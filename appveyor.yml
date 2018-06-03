@@ -1,7 +1,7 @@
 clone_depth: 1
 version: '{branch}-{build}'
 image: Visual Studio 2017
-configuration: Debug
+configuration: Release
 cache:
   - C:\ProgramData\chocolatey\bin -> appveyor.yml
   - C:\ProgramData\chocolatey\lib -> appveyor.yml
@@ -28,3 +28,6 @@ on_success:
 on_failure:
   - ps: Invoke-RestMethod https://raw.githubusercontent.com/k3rn31p4nic/appveyor-discord-webhook/master/send.ps1 -o send.ps1
   - ps: ./send.ps1 failure $env:WEBHOOK_URL
+artifacts:
+  - path: touhou.sharp.Desktop\bin\$(configuration)\n
+    name: Binaries
