@@ -20,7 +20,7 @@ namespace Symcol.Core.Graphics.Text
         protected virtual bool MarkerNeedsEnd => true;
 
         /// <summary>
-        /// Overrides any existing text and adds the new one with <see cref="AddFormattedText(string)"/>
+        /// Overrides any existing text and adds the new one with <see cref="AddFormattedText(string,Action{SpriteText}(osu.Framework.Graphics.Sprites.SpriteText))"/>
         /// </summary>
         public string FormattedText
         {
@@ -39,7 +39,7 @@ namespace Symcol.Core.Graphics.Text
         protected abstract void FormatText(List<T> markers, SpriteText text);
 
         /// <summary>
-        /// Add new formatted text to this text flow. The \n character will create a new paragraph, not just a line break. If you need \n to be a line break, use <see cref="AddParagraph(string, Action{SpriteText})"/> instead.
+        /// Add new formatted text to this text flow. The \n character will create a new paragraph, not just a line break. If you need \n to be a line break, use <see cref="TextFlowContainer.AddParagraph"/> instead.
         /// </summary>
         /// <returns>A collection of the <see cref="SpriteText" /> objects for each word created from the given text.</returns>
         /// <param name="text">The formatted text to add.</param>
@@ -47,12 +47,12 @@ namespace Symcol.Core.Graphics.Text
         public IEnumerable<SpriteText> AddFormattedText(string text, Action<SpriteText> creationParameters = null) => addFormattedLine(text, creationParameters, true);
 
         /// <summary>
-        /// Add a new formatted paragraph to this text flow. The \n character will create a line break. If you need \n to be a new paragraph, not just a line break, use <see cref="AddText(string, Action{SpriteText})"/> instead.
+        /// Add a new formatted paragraph to this text flow. The \n character will create a line break. If you need \n to be a new paragraph, not just a line break, use <see cref="TextFlowContainer.AddText(string,System.Action{osu.Framework.Graphics.Sprites.SpriteText})"/> instead.
         /// </summary>
         /// <returns>A collection of the <see cref="SpriteText" /> objects for each word created from the given text.</returns>
         /// <param name="paragraph">The formatted paragraph to add.</param>
         /// <param name="creationParameters">A callback providing any <see cref="SpriteText" /> instances created for this new paragraph.</param>
-        public IEnumerable<SpriteText> AddFormattedParagraph(string paragraph, Action<SpriteText> creationParameters = null) => addFormattedLine(paragraph, creationParameters, false);
+        public IEnumerable<SpriteText> AddFormattedParagraph(string paragraph, Action<SpriteText> creationParameters = null) => addFormattedLine(paragraph, creationParameters);
 
 
         private IEnumerable<SpriteText> addFormattedLine(string text, Action<SpriteText> creationParameter = null, bool paragraph = false)

@@ -18,6 +18,7 @@ namespace Symcol.Core.NeuralNetworking
             get => neuralNetworkState;
             set
             {
+                // ReSharper disable once RedundantCheckBeforeAssignment
                 if (value != neuralNetworkState)
                 {
                     neuralNetworkState = value;
@@ -43,6 +44,7 @@ namespace Symcol.Core.NeuralNetworking
         public int GetOutput(T t)
         {
             TFSession session = new TFSession();
+            // ReSharper disable once UnusedVariable
             Runner runner = session.GetRunner();
 
             TFTensor result = GetTensor(session, t);
@@ -50,7 +52,7 @@ namespace Symcol.Core.NeuralNetworking
             int bestIdx = 0;
             float best = 0;
 
-            object output = result.GetValue(jagged: false);
+            object output = result.GetValue();
 
             float[,] val = (float[,])output;
 

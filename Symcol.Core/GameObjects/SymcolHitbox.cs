@@ -2,7 +2,6 @@
 using OpenTK;
 using osu.Framework.Graphics.Containers;
 using Symcol.Core.Graphics.Containers;
-using System;
 
 namespace Symcol.Core.GameObjects
 {
@@ -64,10 +63,16 @@ namespace Symcol.Core.GameObjects
                         return true;
                 }
                 else if (hitbox1.Shape == Shape.Complex || hitbox2.Shape == Shape.Complex)
-                    foreach (Container child1 in hitbox1.Children)
-                        foreach (Container child2 in hitbox2.Children)
+                    foreach (Drawable drawable in hitbox1.Children)
+                    {
+                        var child1 = (Container)drawable;
+                        foreach (Drawable drawable1 in hitbox2.Children)
+                        {
+                            var child2 = (Container)drawable1;
                             if (child1.ScreenSpaceDrawQuad.AABB.IntersectsWith(child2.ScreenSpaceDrawQuad.AABB))
                                 return true;
+                        }
+                    }
             }
             return false;
         }

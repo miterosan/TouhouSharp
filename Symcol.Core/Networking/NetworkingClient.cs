@@ -16,6 +16,7 @@ namespace Symcol.Core.Networking
 
         public IPEndPoint EndPoint;
 
+        // ReSharper disable once InconsistentNaming
         public Action OnStartedUPnPMapping;
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace Symcol.Core.Networking
         {
             INatDevice device = args.Device;
 
-            if (NatMapping.NatDevice?.LocalAddress == device.LocalAddress)
+            if (Equals(NatMapping.NatDevice?.LocalAddress, device.LocalAddress))
                 return;
 
             device.CreatePortMap(NatMapping.UdpMapping);
@@ -81,7 +82,7 @@ namespace Symcol.Core.Networking
         private void deviceLost(object sender, DeviceEventArgs args)
         {
             INatDevice device = args.Device;
-            if (NatMapping.NatDevice.LocalAddress == device.LocalAddress)
+            if (Equals(NatMapping.NatDevice.LocalAddress, device.LocalAddress))
             {
                 NatMapping.NatDevice.DeletePortMap(NatMapping.UdpMapping);
                 NatMapping.NatDevice = null;
@@ -158,8 +159,7 @@ namespace Symcol.Core.Networking
 
         public void Clear()
         {
-            if (UdpClient != null)
-                UdpClient.Dispose();
+            UdpClient?.Dispose();
 
             if (!Send)
                 try

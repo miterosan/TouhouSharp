@@ -20,11 +20,11 @@ namespace Symcol.Core.Graphics.UserInterface
         public Container WindowContent { get; set; }
         public SpriteText WindowTitle;
 
-        private readonly Container topBar;
         private readonly ClickableContainer minimize;
 
         public SymcolWindow(Vector2 size)
         {
+            Container topBar;
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
             CornerRadius = 6;

@@ -2,7 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Diagnostics;
-using NUnit.Framework;
+//using NUnit.Framework;
 
 namespace osu.Framework.Logging
 {

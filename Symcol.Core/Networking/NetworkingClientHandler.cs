@@ -133,7 +133,7 @@ namespace Symcol.Core.Networking
                     throw new NotImplementedException();
             }
 
-            Logger.Log("Created a RulesetNetworkingClientHandler", LoggingTarget.Network, LogLevel.Verbose);
+            Logger.Log("Created a RulesetNetworkingClientHandler", LoggingTarget.Network);
 
             if (ClientInfo == null)
                 ClientInfo = new ClientInfo
@@ -177,14 +177,14 @@ namespace Symcol.Core.Networking
                             if (client.IP == packet.ClientInfo.IP)
                             {
                                 ConnectingClients.Remove(client);
-                                Logger.Log("A Connecting Client has Disconnected", LoggingTarget.Network, LogLevel.Verbose);
+                                Logger.Log("A Connecting Client has Disconnected", LoggingTarget.Network);
                                 break;
                             }
                         foreach (ClientInfo client in ConncetedClients)
                             if (client.IP == packet.ClientInfo.IP)
                             {
                                 ConncetedClients.Remove(client);
-                                Logger.Log("A Client has Disconnected", LoggingTarget.Network, LogLevel.Verbose);
+                                Logger.Log("A Client has Disconnected", LoggingTarget.Network);
                                 break;
                             }
                         foreach (ClientInfo client in InMatchClients)
@@ -229,7 +229,7 @@ namespace Symcol.Core.Networking
                             Ip = client.IP
                         });
 
-                        Logger.Log("A Client is Connecting. . .", LoggingTarget.Network, LogLevel.Verbose);
+                        Logger.Log("A Client is Connecting. . .", LoggingTarget.Network);
                     }
 
                     if (packet.RequestPlayerList)
@@ -250,14 +250,14 @@ namespace Symcol.Core.Networking
                             RequestPlayerList = true
                         });
 
-                        Logger.Log("A Client is Connecting. . .", LoggingTarget.Network, LogLevel.Verbose);
+                        Logger.Log("A Client is Connecting. . .", LoggingTarget.Network);
                     }
 
                     if (packet.Loaded)
                         foreach (ClientInfo client in InMatchClients)
                             if (client.IP == packet.ClientInfo.IP)
                             {
-                                Logger.Log("A Client has Loaded and is ready to start", LoggingTarget.Network, LogLevel.Verbose);
+                                Logger.Log("A Client has Loaded and is ready to start", LoggingTarget.Network);
                                 InMatchClients.Remove(client);
                                 LoadedClients.Add(client);
                                 break;
@@ -267,7 +267,7 @@ namespace Symcol.Core.Networking
                         foreach (ClientInfo client in LoadedClients)
                             if (client.IP == packet.ClientInfo.IP)
                             {
-                                Logger.Log("A Client has started!", LoggingTarget.Network, LogLevel.Verbose);
+                                Logger.Log("A Client has started!", LoggingTarget.Network);
                                 LoadedClients.Remove(client);
                                 InGameClients.Add(client);
                                 break;
@@ -285,7 +285,7 @@ namespace Symcol.Core.Networking
                                 OnClientJoin?.Invoke(client);
                                 client.LastConnectionTime = Time.Current;
                                 client.ConncetionTryCount = 0;
-                                Logger.Log("Successfully connected to a Client! Ping: " + client.Ping, LoggingTarget.Network, LogLevel.Verbose);
+                                Logger.Log("Successfully connected to a Client! Ping: " + client.Ping, LoggingTarget.Network);
                                 break;
                             }
                         foreach (ClientInfo client in ConncetedClients)
@@ -294,7 +294,7 @@ namespace Symcol.Core.Networking
                                 client.Ping = (int)Time.Current - (int)client.LastConnectionTime;
                                 client.LastConnectionTime = Time.Current;
                                 client.ConncetionTryCount = 0;
-                                Logger.Log("Successfully maintained connection to a Client! Ping: " + client.Ping, LoggingTarget.Network, LogLevel.Verbose);
+                                Logger.Log("Successfully maintained connection to a Client! Ping: " + client.Ping, LoggingTarget.Network);
                             }
                     }
                 }
@@ -313,13 +313,13 @@ namespace Symcol.Core.Networking
                             ClientInfo.IP = packet.Ip;
                             OnConnectedToHost?.Invoke(packet.PlayerList);
                         }
-                        Logger.Log("Connected to Host!", LoggingTarget.Network, LogLevel.Verbose);
+                        Logger.Log("Connected to Host!", LoggingTarget.Network);
                     }
 
                     if (packet.Test)
                     {
                         SendToHost(new BasicPacket(ClientInfo) { Test = true });
-                        Logger.Log("Received connection test info from host, returning. . .", LoggingTarget.Network, LogLevel.Verbose);
+                        Logger.Log("Received connection test info from host, returning. . .", LoggingTarget.Network);
                     }
 
                     if (packet.RequestPlayerList)
@@ -341,7 +341,7 @@ namespace Symcol.Core.Networking
 
                     if (packet.LoadGame)
                     {
-                        Logger.Log("Received instructions to LoadGame for " + packet.PlayerList.Count + " players", LoggingTarget.Network, LogLevel.Verbose);
+                        Logger.Log("Received instructions to LoadGame for " + packet.PlayerList.Count + " players", LoggingTarget.Network);
                         OnLoadGame?.Invoke(packet.PlayerList);
                     }
                 }
@@ -407,7 +407,7 @@ namespace Symcol.Core.Networking
             clientInfo.ConncetionTryCount++;
             NetworkingClient client = new NetworkingClient(true, clientInfo.IP, clientInfo.Port);
             client.SendPacket(new BasicPacket(ClientInfo) { Test = true });
-            Logger.Log("Testing a client's connection - " + clientInfo.IP + ":" + clientInfo.Port, LoggingTarget.Network, LogLevel.Verbose);
+            Logger.Log("Testing a client's connection - " + clientInfo.IP + ":" + clientInfo.Port, LoggingTarget.Network);
         }
 
         public void RequestPlayerList()
@@ -446,7 +446,7 @@ namespace Symcol.Core.Networking
                 OnLoadGame?.Invoke(packet.PlayerList);
             }
             else
-                Logger.Log("Called StartLoadingGame - We are not the Host!", LoggingTarget.Network, LogLevel.Verbose);
+                Logger.Log("Called StartLoadingGame - We are not the Host!", LoggingTarget.Network);
         }
 
         /// <summary>
@@ -468,7 +468,7 @@ namespace Symcol.Core.Networking
 
             ConnectionStatues = ConnectionStatues.Connecting;
             SendToHost(new BasicPacket(ClientInfo) { Connect = true });
-            Logger.Log("Attempting conection to Host. . .", LoggingTarget.Network, LogLevel.Verbose);
+            Logger.Log("Attempting conection to Host. . .", LoggingTarget.Network);
         }
 
         /// <summary>
@@ -480,7 +480,7 @@ namespace Symcol.Core.Networking
             {
                 SendToLoadedClients(new BasicPacket(ClientInfo) { StartGame = true });
                 InGame = true;
-                Logger.Log("Sending Start Game", LoggingTarget.Network, LogLevel.Verbose);
+                Logger.Log("Sending Start Game", LoggingTarget.Network);
             }
             StartGame?.Invoke();
         }
@@ -491,8 +491,7 @@ namespace Symcol.Core.Networking
         /// <param name="packet"></param>
         public void SendToHost(Packet packet)
         {
-            if (SendClient != null)
-                SendClient.SendPacket(packet);
+            SendClient?.SendPacket(packet);
         }
 
         /// <summary>
@@ -590,7 +589,6 @@ namespace Symcol.Core.Networking
         /// Send to all but the one that sent it
         /// </summary>
         /// <param name="packet"></param>
-        /// <param name="playerID"></param>
         public void ShareWithOtherPeers(Packet packet)
         {
             if (ClientType == ClientType.Host || ClientType == ClientType.Server)

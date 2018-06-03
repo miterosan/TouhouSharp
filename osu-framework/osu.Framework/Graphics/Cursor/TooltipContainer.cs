@@ -165,6 +165,7 @@ namespace osu.Framework.Graphics.Cursor
         private IHasTooltip findTooltipTarget()
         {
             // While we are dragging a tooltipped drawable we should show a tooltip for it.
+            // ReSharper disable once SuspiciousTypeConversion.Global
             if (inputManager.DraggedDrawable is IHasTooltip draggedTarget)
                 return hasValidTooltip(draggedTarget) ? draggedTarget : null;
 
