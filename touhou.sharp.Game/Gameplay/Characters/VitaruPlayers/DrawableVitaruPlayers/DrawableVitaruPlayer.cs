@@ -39,9 +39,9 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
                 if (true)//Gamemode == Gamemodes.Touhosu)
                     return new Vector4(0, 512, 0, 820);
                 // ReSharper disable once RedundantIfElseBlock
-                else
+                //else
                     // ReSharper disable once HeuristicUnreachableCode
-                    return new Vector4(0, 512, 0, 820);
+                    //return new Vector4(0, 512, 0, 820);
             }
         }
 
@@ -351,7 +351,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         protected double GetBulletHealingMultiplier(double value)
         {
             const double scale = (healing_max - healing_min) / (0 - healing_range);
-            return healing_min + ((value - healing_range) * scale);
+            return healing_min + (value - healing_range) * scale;
         }
 
         protected override void Death()

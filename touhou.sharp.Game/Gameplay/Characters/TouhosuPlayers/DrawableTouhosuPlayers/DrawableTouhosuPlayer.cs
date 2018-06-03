@@ -107,7 +107,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
         }
 
         //TODO: I feel like this TODO should be obvious (figure out this bindable thing)
-        public static DrawableTouhosuPlayer GetDrawableTouhosuPlayer(Playfield.GamePlayfield playfield, string name, Bindable<int> bindableInt = null)
+        public static DrawableTouhosuPlayer GetDrawableTouhosuPlayer(GamePlayfield playfield, string name, Bindable<int> bindableInt = null)
         {
             switch (name)
             {

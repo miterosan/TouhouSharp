@@ -1,6 +1,5 @@
 ﻿using System;
 using Symcol.Core.NeuralNetworking;
-using touhou.sharp.Game.Gameplay;
 using TensorFlow;
 
 namespace touhou.sharp.Game.NeuralNetworking

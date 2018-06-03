@@ -9,10 +9,9 @@ namespace touhou.sharp.Game.Screens
 {
     public class HomeScreen : THSharpMenuScreen
     {
-        private readonly SymcolClickableContainer editorButton;
-
         public HomeScreen()
         {
+            SymcolClickableContainer editorButton;
             Children = new Drawable[]
             {
                 new Box
