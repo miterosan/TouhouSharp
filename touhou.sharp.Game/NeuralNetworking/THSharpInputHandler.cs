@@ -1,7 +1,6 @@
 ﻿using Symcol.Core.NeuralNetworking;
-using touhou.sharp.Game.NeuralNetworking;
 
-namespace touhou.sharp.Game.Gameplay
+namespace touhou.sharp.Game.NeuralNetworking
 {
     public class THSharpInputHandler : NeuralInputContainer<THSharpAction>
     {

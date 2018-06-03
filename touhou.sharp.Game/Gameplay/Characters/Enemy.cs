@@ -1,13 +1,10 @@
-﻿using osu.Framework.Audio.Track;
-using osu.Framework.Graphics;
-using osu.Framework.Graphics.Textures;
-using osu.Framework.Platform;
+﻿using osu.Framework.Platform;
 using OpenTK;
 using OpenTK.Graphics;
-using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 
-namespace touhou.sharp.Game.Characters
+namespace touhou.sharp.Game.Gameplay.Characters
 {
     public class Enemy : Character
     {
@@ -21,12 +18,12 @@ namespace touhou.sharp.Game.Characters
 
         private Color4 characterColor;
 
-        public Enemy(THSharpPlayfield playfield, Pattern pattern, DrawablePattern drawablePattern) : base(playfield)
+        public Enemy(THSharpPlayfield playfield) : base(playfield)
         {
             AlwaysPresent = true;
 
             Team = 1;
-            characterColor = drawablePattern.AccentColour;
+            //characterColor = drawablePattern.AccentColour;
         }
 
         protected override void MovementAnimations()
@@ -74,9 +71,9 @@ namespace touhou.sharp.Game.Characters
             LastX = Position.X;
         }
 
-        protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
+        protected override void LoadAnimationSprites(THSharpSkinElement textures)
         {
-            base.LoadAnimationSprites(textures, storage);
+            base.LoadAnimationSprites(textures);
             RightSprite.Texture = textures.GetSkinTextureElement(CharacterName);
             KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Kiai");
         }

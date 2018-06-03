@@ -1,12 +1,10 @@
-﻿using System;
-using osu.Framework.Graphics;
-using osu.Framework.Graphics.Textures;
+﻿using osu.Framework.Graphics;
 using osu.Framework.Platform;
 using OpenTK;
-using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 
-namespace touhou.sharp.Game.Characters
+namespace touhou.sharp.Game.Gameplay.Characters
 {
     public class Boss : Character
     {
@@ -42,7 +40,7 @@ namespace touhou.sharp.Game.Characters
                 Seal.RotateTo((float)((Clock.CurrentTime / 1000) * 90));
         }
 
-        protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
+        protected override void LoadAnimationSprites(THSharpSkinElement textures)
         {
             SoulContainer.Alpha = 0;
             KiaiContainer.Alpha = 1;
@@ -51,7 +49,7 @@ namespace touhou.sharp.Game.Characters
             KiaiRightSprite.Alpha = 0;
             KiaiStillSprite.Alpha = 1;
 
-            //KiaiStillSprite.Texture = THSharpSkinElement.LoadSkinElement(CharacterName + " Kiai", storage);
+            KiaiStillSprite.Texture = textures.GetSkinTextureElement(CharacterName + " Kiai");
 
             Size = new Vector2(128);
         }

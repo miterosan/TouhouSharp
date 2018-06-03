@@ -11,11 +11,11 @@ using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
-using touhou.sharp.Game.Characters.Pieces;
+using touhou.sharp.Game.Gameplay.Characters.Pieces;
 using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 
-namespace touhou.sharp.Game.Characters
+namespace touhou.sharp.Game.Gameplay.Characters
 {
     public abstract class Character : SymcolContainer
     {
@@ -139,6 +139,7 @@ namespace touhou.sharp.Game.Characters
 
             foreach (Drawable draw in THSharpPlayfield.GameField.Current)
             {
+                /*
                 DrawableBullet bullet = draw as DrawableBullet;
                 if (bullet?.Hitbox != null)
                 {
@@ -171,6 +172,7 @@ namespace touhou.sharp.Game.Characters
                         laser.Hit = true;
                     }
                 }
+                */
             }
 
             MovementAnimations();
@@ -179,19 +181,19 @@ namespace touhou.sharp.Game.Characters
         /// <summary>
         /// Gets called just before hit detection
         /// </summary>
-        protected virtual void ParseBullet(DrawableBullet bullet) { }
+        //protected virtual void ParseBullet(DrawableBullet bullet) { }
 
-        protected virtual void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
+        protected virtual void LoadAnimationSprites(THSharpSkinElement textures)
         {
-            StillSprite.Texture = textures.LoadSkinElement(CharacterName, storage);
-            KiaiStillSprite.Texture = textures.LoadSkinElement(CharacterName + "Kiai", storage);
+            StillSprite.Texture = textures.GetSkinTextureElement(CharacterName);
+            KiaiStillSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Kiai");
         }
 
         /// <summary>
         /// Child loading for all Characters (Enemies, Player, Bosses)
         /// </summary>
         [BackgroundDependencyLoader]
-        private void load(TextureStore textures, Storage storage)
+        private void load(THSharpSkinElement textures)
         {
             Health = MaxHealth;
 
@@ -296,7 +298,7 @@ namespace touhou.sharp.Game.Characters
             if (CharacterName == "player" || CharacterName == "enemy")
                 KiaiContainer.Colour = PrimaryColor;
 
-            LoadAnimationSprites(textures, storage);
+            LoadAnimationSprites(textures);
         }
 
         /// <summary>

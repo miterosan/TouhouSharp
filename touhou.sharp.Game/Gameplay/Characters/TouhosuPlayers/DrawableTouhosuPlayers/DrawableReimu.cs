@@ -1,8 +1,9 @@
 ﻿using System;
 using osu.Framework.Graphics;
 using OpenTK;
+using touhou.sharp.Game.Gameplay.Playfield;
 
-namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableReimu : DrawableTouhosuPlayer
     {
@@ -13,7 +14,7 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 
         //private readonly List<DrawableTouhosuPlayer> leaderedPlayers = new List<DrawableTouhosuPlayer>();
 
-        public DrawableReimu(THSharpPlayfield playfield, THSharpNetworkingClientHandler vitaruNetworkingClientHandler) : base(playfield, new Reimu(), vitaruNetworkingClientHandler)
+        public DrawableReimu(THSharpPlayfield playfield) : base(playfield, new Reimu())
         {
         }
 

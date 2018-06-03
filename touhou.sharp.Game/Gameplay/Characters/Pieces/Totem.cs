@@ -3,10 +3,11 @@ using osu.Framework.Graphics.Shapes;
 using OpenTK;
 using Symcol.Core.Graphics.Containers;
 
-namespace touhou.sharp.Game.Characters.Pieces
+namespace touhou.sharp.Game.Gameplay.Characters.Pieces
 {
     public class Totem : SymcolContainer
     {
+        /*
         public readonly Character ParentCharacter;
         private readonly THSharpPlayfield vitaruPlayfield;
 
@@ -46,5 +47,6 @@ namespace touhou.sharp.Game.Characters.Pieces
                 RelativeSizeAxes = Axes.Both
             };
         }
+        */
     }
 }

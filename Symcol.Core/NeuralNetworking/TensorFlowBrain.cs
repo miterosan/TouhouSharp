@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using TensorFlow;
+﻿using TensorFlow;
 using static TensorFlow.TFSession;
 
 namespace Symcol.Core.NeuralNetworking
@@ -16,7 +15,7 @@ namespace Symcol.Core.NeuralNetworking
         /// </summary>
         public NeuralNetworkState NeuralNetworkState
         {
-            get { return neuralNetworkState; }
+            get => neuralNetworkState;
             set
             {
                 if (value != neuralNetworkState)

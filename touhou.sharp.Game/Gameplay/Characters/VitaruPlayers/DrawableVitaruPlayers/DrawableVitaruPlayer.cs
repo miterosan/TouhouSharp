@@ -7,11 +7,11 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Platform;
 using OpenTK;
 using OpenTK.Graphics;
-using touhou.sharp.Game.Gameplay;
 using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
+using touhou.sharp.Game.NeuralNetworking;
 
-namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlayers
 {
     public class DrawableTHSharpPlayer : Character
     {
@@ -76,7 +76,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
         private double nextQuarterBeat = -1;
         private double beatLength = 1000;
 
-        protected List<HealingBullet> HealingBullets { get; private set; } = new List<HealingBullet>();
+        //protected List<HealingBullet> HealingBullets { get; private set; } = new List<HealingBullet>();
 
         protected const double HEALING_FALL_OFF = 0.85d;
 
@@ -149,9 +149,9 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             */
         }
 
-        protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
+        protected override void LoadAnimationSprites(THSharpSkinElement textures)
         {
-            base.LoadAnimationSprites(textures, storage);
+            base.LoadAnimationSprites(textures);
 
             RightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Right");
             KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "KiaiRight");
@@ -164,6 +164,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             if (HealthHacks)
                 Heal(999999);
 
+            /*
             foreach (Drawable draw in THSharpPlayfield.GameField.QuarterAbstraction)
                 if (draw is DrawableBullet bullet && bullet.Hitbox != null)
                     ParseBullet(bullet);
@@ -175,6 +176,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             foreach (Drawable draw in THSharpPlayfield.GameField.FullAbstraction)
                 if (draw is DrawableBullet bullet && bullet.Hitbox != null)
                     ParseBullet(bullet);
+            */
 
             Position = GetNewPlayerPosition(0.25d);
 
@@ -204,10 +206,11 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
 
                 Cursor.Position = closestCharacter.Position;
             }
-            else if (!Puppet)
-                Cursor.Position = THSharpCursor.CenterCircle.ToSpaceOfOtherDrawable(Vector2.Zero, Parent) + new Vector2(6);
+            //else if (!Puppet)
+                //Cursor.Position = THSharpCursor.CenterCircle.ToSpaceOfOtherDrawable(Vector2.Zero, Parent) + new Vector2(6);
         }
 
+        /*
         protected override void ParseBullet(DrawableBullet bullet)
         {
             base.ParseBullet(bullet);
@@ -249,6 +252,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
                 EdgeDistance = distance;
             }
         }
+        */
 
         protected virtual Vector2 GetNewPlayerPosition(double playerSpeed)
         {
@@ -257,6 +261,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             double yTranslationDistance = playerSpeed * Clock.ElapsedFrameTime * SpeedMultiplier;
             double xTranslationDistance = playerSpeed * Clock.ElapsedFrameTime * SpeedMultiplier;
 
+            /*
             if (Auto)
             {
                 Actions[THSharpAction.Up] = false;
@@ -345,6 +350,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
                 if (Actions[THSharpAction.Slow])
                     VisibleHitbox.Alpha = 1;
             }
+            */
 
             if (Actions[THSharpAction.Slow])
             {
@@ -381,6 +387,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             //base.Death();
         }
 
+        /*
         #region Shooting Handling
         private void bulletAddRad(double speed, double angle, Color4 color, double size, double damage)
         {
@@ -447,6 +454,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             }
         }
         #endregion
+        */
 
         #region Input Handling
         public override bool ReceiveMouseInputAt(Vector2 screenSpacePos) => true;
@@ -472,7 +480,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             if (action == THSharpAction.Shoot)
                 Actions[THSharpAction.Shoot] = true;
 
-            sendPacket(action);
+            //sendPacket(action);
         }
 
         protected virtual void Released(THSharpAction action)
@@ -495,18 +503,18 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             if (action == THSharpAction.Shoot)
                 Actions[THSharpAction.Shoot] = false;
 
-            sendPacket(THSharpAction.None, action);
+            //sendPacket(THSharpAction.None, action);
         }
         #endregion
 
-        public static DrawableTHSharpPlayer GetDrawableTHSharpPlayer(THSharpPlayfield playfield, string name, THSharpNetworkingClientHandler vitaruNetworkingClientHandler)
+        public static DrawableTHSharpPlayer GetDrawableTHSharpPlayer(THSharpPlayfield playfield, string name)
         {
             switch (name)
             {
                 default:
-                    return new DrawableTHSharpPlayer(playfield, THSharpPlayer.GetTHSharpPlayer(name), vitaruNetworkingClientHandler);
+                    return new DrawableTHSharpPlayer(playfield, THSharpPlayer.GetTHSharpPlayer(name));
                 case "Alex":
-                    return new DrawableTHSharpPlayer(playfield, THSharpPlayer.GetTHSharpPlayer(name), vitaruNetworkingClientHandler);
+                    return new DrawableTHSharpPlayer(playfield, THSharpPlayer.GetTHSharpPlayer(name));
             }
         }
     }

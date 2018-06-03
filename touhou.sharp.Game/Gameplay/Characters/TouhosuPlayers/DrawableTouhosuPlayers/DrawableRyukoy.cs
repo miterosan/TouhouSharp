@@ -3,9 +3,10 @@ using osu.Framework.Allocation;
 using osu.Framework.Audio;
 using osu.Framework.Configuration;
 using osu.Framework.Timing;
-using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Gameplay.Playfield;
+using touhou.sharp.Game.NeuralNetworking;
 
-namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableRyukoy : DrawableTouhosuPlayer
     {
@@ -14,12 +15,10 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 
         private int level = 1;
 
-        private readonly Bindable<WorkingBeatmap> workingBeatmap = new Bindable<WorkingBeatmap>();
-
         private readonly Bindable<int> abstraction;
         #endregion
 
-        public DrawableRyukoy(THSharpPlayfield playfield, THSharpNetworkingClientHandler vitaruNetworkingClientHandler, Bindable<int> abstraction) : base(playfield, new Ryukoy(), vitaruNetworkingClientHandler)
+        public DrawableRyukoy(THSharpPlayfield playfield, Bindable<int> abstraction) : base(playfield, new Ryukoy())
         {
             this.abstraction = abstraction;
             Abstraction = 3;
@@ -31,9 +30,9 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
         }
 
         [BackgroundDependencyLoader]
-        private void load(OsuGameBase game)
+        private void load()
         {
-            workingBeatmap.BindTo(game.Beatmap);
+
         }
 
         protected override void SpellUpdate()
@@ -43,15 +42,10 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
             if (SpellActive)
             {
                 Energy -= (Clock.ElapsedFrameTime / 1000) * TouhosuPlayer.EnergyDrainRate * (level * 0.25f);
-
                 abstraction.Value = level;
-                applyToClock(workingBeatmap.Value.Track, setPitch);
             }
             else
-            {
-                applyToClock(workingBeatmap.Value.Track, 1);
                 abstraction.Value = 0;
-            }
         }
 
         private void applyToClock(IAdjustableClock clock, double pitch)

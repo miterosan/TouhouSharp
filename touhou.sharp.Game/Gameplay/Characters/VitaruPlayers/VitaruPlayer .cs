@@ -1,6 +1,6 @@
 ﻿using OpenTK.Graphics;
 
-namespace touhou.sharp.Game.Characters.VitaruPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers
 {
     public class THSharpPlayer
     {

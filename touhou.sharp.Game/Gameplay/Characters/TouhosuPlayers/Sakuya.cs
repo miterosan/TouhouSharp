@@ -1,6 +1,6 @@
 ﻿using OpenTK.Graphics;
 
-namespace touhou.sharp.Game.Characters.TouhosuPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers
 {
     public class Sakuya : TouhosuPlayer
     {
@@ -18,9 +18,9 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers
 
         public override Color4 PrimaryColor => Color4.Navy;
 
-        public override Color4 SecondaryColor => OsuColour.FromHex("#92a0dd");
+        //public override Color4 SecondaryColor => OsuColour.FromHex("#92a0dd");
 
-        public override Color4 ComplementaryColor => OsuColour.FromHex("#d6d6d6");
+        //public override Color4 ComplementaryColor => OsuColour.FromHex("#d6d6d6");
 
         public override string Spell => "Time Keeper";
 

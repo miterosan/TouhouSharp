@@ -1,8 +1,9 @@
 ﻿using System;
 using osu.Framework.Graphics;
 using OpenTK;
+using touhou.sharp.Game.Gameplay.Playfield;
 
-namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableTomaji : DrawableTouhosuPlayer
     {
@@ -15,7 +16,7 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
         /// </summary>
         private double charge;
 
-        public DrawableTomaji(THSharpPlayfield playfield, THSharpNetworkingClientHandler vitaruNetworkingClientHandler) : base(playfield, new Tomaji(), vitaruNetworkingClientHandler)
+        public DrawableTomaji(THSharpPlayfield playfield) : base(playfield, new Tomaji())
         {
         }
 

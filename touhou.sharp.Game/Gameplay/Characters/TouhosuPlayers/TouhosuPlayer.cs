@@ -1,6 +1,6 @@
-﻿using touhou.sharp.Game.Characters.VitaruPlayers;
+﻿using touhou.sharp.Game.Gameplay.Characters.VitaruPlayers;
 
-namespace touhou.sharp.Game.Characters.TouhosuPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers
 {
     public class TouhosuPlayer : THSharpPlayer
     {

@@ -1,10 +1,11 @@
 ﻿using System;
 using osu.Framework.Allocation;
 using osu.Framework.Configuration;
-using touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers;
-using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlayers;
+using touhou.sharp.Game.Gameplay.Playfield;
+using touhou.sharp.Game.NeuralNetworking;
 
-namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableTouhosuPlayer : DrawableTHSharpPlayer
     {
@@ -27,16 +28,9 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
         //reset after healing is done
         public double EnergyGainMultiplier = 1;
 
-        public DrawableTouhosuPlayer(THSharpPlayfield playfield, TouhosuPlayer player, THSharpNetworkingClientHandler vitaruNetworkingClientHandler) : base(playfield, player, vitaruNetworkingClientHandler)
+        public DrawableTouhosuPlayer(THSharpPlayfield playfield, TouhosuPlayer player) : base(playfield, player)
         {
             TouhosuPlayer = player;
-        }
-
-        [BackgroundDependencyLoader]
-        private void load()
-        {
-            if (!Puppet)
-                DebugToolkit.GeneralDebugItems.Add(new DebugAction(() => { EnergyHacks = !EnergyHacks; }) { Text = "Energy Hacks" });
         }
 
         protected override void Update()
@@ -73,6 +67,7 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 
         protected virtual void SpellUpdate()
         {
+            /*
             if (HealingBullets.Count > 0)
             {
                 double fallOff = 1;
@@ -83,6 +78,7 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
                 foreach (HealingBullet HealingBullet in HealingBullets)
                     Energy = Math.Min(((Clock.ElapsedFrameTime / 500) * (GetBulletHealingMultiplier(HealingBullet.EdgeDistance) * fallOff)) + Energy, TouhosuPlayer.MaxEnergy);
             }
+            */
 
             if (Energy <= 0)
             {
@@ -109,34 +105,34 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
         }
 
         //TODO: I feel like this TODO should be obvious (figure out this bindable thing)
-        public static DrawableTouhosuPlayer GetDrawableTouhosuPlayer(THSharpPlayfield playfield, string name, THSharpNetworkingClientHandler vitaruNetworkingClientHandler, Bindable<int> bindableInt = null)
+        public static DrawableTouhosuPlayer GetDrawableTouhosuPlayer(THSharpPlayfield playfield, string name, Bindable<int> bindableInt = null)
         {
             switch (name)
             {
                 default:
-                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name), vitaruNetworkingClientHandler);
+                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name));
 
                 case "ReimuHakurei":
-                    return new DrawableReimu(playfield, vitaruNetworkingClientHandler);
+                    return new DrawableReimu(playfield);
                 case "RyukoyHakurei":
-                    return new DrawableRyukoy(playfield, vitaruNetworkingClientHandler, bindableInt);
+                    return new DrawableRyukoy(playfield, bindableInt);
                 case "TomajiHakurei":
-                    return new DrawableTomaji(playfield, vitaruNetworkingClientHandler);
+                    return new DrawableTomaji(playfield);
 
                 case "SakuyaIzayoi":
-                    return new DrawableSakuya(playfield, vitaruNetworkingClientHandler);
+                    return new DrawableSakuya(playfield);
                 case "RemiliaScarlet":
-                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name), vitaruNetworkingClientHandler);
+                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name));
                 case "FlandreScarlet":
-                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name), vitaruNetworkingClientHandler);
+                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name));
 
                 case "AliceLetrunce":
-                    return new DrawableAlice(playfield, vitaruNetworkingClientHandler);
+                    return new DrawableAlice(playfield);
                 case "VasterLetrunce":
-                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name), vitaruNetworkingClientHandler);
+                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name));
 
                 case "MarisaKirisame":
-                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name), vitaruNetworkingClientHandler);
+                    return new DrawableTouhosuPlayer(playfield, TouhosuPlayer.GetTouhosuPlayer(name));
             }
         }
     }

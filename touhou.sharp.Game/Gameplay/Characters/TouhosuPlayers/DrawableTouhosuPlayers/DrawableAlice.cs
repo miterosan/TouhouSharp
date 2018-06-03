@@ -1,10 +1,11 @@
 ﻿using osu.Framework.Graphics;
+using touhou.sharp.Game.Gameplay.Playfield;
 
-namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
+namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
     public class DrawableAlice : DrawableTouhosuPlayer
     {
-        public DrawableAlice(THSharpPlayfield playfield, THSharpNetworkingClientHandler vitaruNetworkingClientHandler) : base(playfield, new Alice(), vitaruNetworkingClientHandler)
+        public DrawableAlice(THSharpPlayfield playfield) : base(playfield, new Alice())
         {
             Spell += (input) =>
             {

@@ -1,4 +1,4 @@
-﻿namespace touhou.sharp.Game.Characters.TouhosuPlayers
+﻿namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers
 {
     public class Remilia : TouhosuPlayer
     {

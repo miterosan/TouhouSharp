@@ -9,10 +9,11 @@ using osu.Framework.MathUtils;
 using osu.Framework.Platform;
 using OpenTK;
 using OpenTK.Graphics;
-using touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers;
-using touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers;
+using touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers;
+using touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlayers;
+using touhou.sharp.Game.Graphics;
 
-namespace touhou.sharp.Game.Characters.Pieces
+namespace touhou.sharp.Game.Gameplay.Characters.Pieces
 {
     public class Seal : Container
     {
@@ -40,7 +41,7 @@ namespace touhou.sharp.Game.Characters.Pieces
         }
 
         [BackgroundDependencyLoader]
-        private void load(Storage storage)
+        private void load(THSharpSkinElement textures)
         {
             if (character is DrawableTHSharpPlayer v)
             {
@@ -84,7 +85,7 @@ namespace touhou.sharp.Game.Characters.Pieces
                                 Colour = v.PrimaryColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
-                                Texture = THSharpSkinElement.LoadSkinElement("seal", storage),
+                                Texture = textures.GetSkinTextureElement("seal"),
                             }
                         }
                     },
@@ -183,7 +184,7 @@ namespace touhou.sharp.Game.Characters.Pieces
                                 Colour = lightColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
-                                Texture = THSharpSkinElement.LoadSkinElement("gearSmall", storage),
+                                Texture = textures.GetSkinTextureElement("gearSmall"),
                                 Position = new Vector2(-41, 10),
                             },
                             gear2 = new Sprite
@@ -191,7 +192,7 @@ namespace touhou.sharp.Game.Characters.Pieces
                                 Colour = v.PrimaryColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
-                                Texture = THSharpSkinElement.LoadSkinElement("gearMedium", storage),
+                                Texture = textures.GetSkinTextureElement("gearMedium"),
                                 Position = new Vector2(-4, 16),
                             },
                             gear3 = new Sprite
@@ -199,7 +200,7 @@ namespace touhou.sharp.Game.Characters.Pieces
                                 Colour = darkColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
-                                Texture = THSharpSkinElement.LoadSkinElement("gearLarge", storage),
+                                Texture = textures.GetSkinTextureElement("gearLarge"),
                                 Position = new Vector2(-16, -34),
                             },
                             gear4 = new Sprite
@@ -207,7 +208,7 @@ namespace touhou.sharp.Game.Characters.Pieces
                                 Colour = v.PrimaryColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
-                                Texture = THSharpSkinElement.LoadSkinElement("gearMedium", storage),
+                                Texture = textures.GetSkinTextureElement("gearMedium"),
                                 Position = new Vector2(35, -40),
                             },
                             gear5 = new Sprite
@@ -215,7 +216,7 @@ namespace touhou.sharp.Game.Characters.Pieces
                                 Colour = lightColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
-                                Texture = THSharpSkinElement.LoadSkinElement("gearSmall", storage),
+                                Texture = textures.GetSkinTextureElement("gearSmall"),
                                 Position = new Vector2(33, 8),
                             },
                         };
@@ -247,7 +248,7 @@ namespace touhou.sharp.Game.Characters.Pieces
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             Colour = character.PrimaryColor,
-                            Texture = THSharpSkinElement.LoadSkinElement("sign", storage)
+                            Texture = textures.GetSkinTextureElement("sign")
                         }
                     }
                 };
