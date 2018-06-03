@@ -12,19 +12,15 @@ using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.NeuralNetworking;
 using touhou.sharp.Game.Config;
+using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
 {
     public class DrawableTHSharpPlayer : Character
     {
         #region Fields
-        protected readonly Gamemodes Gamemode = THSharpSettings.THSharpConfigManager.GetBindable<Gamemodes>(THSharpSetting.GameMode);
-
-        protected readonly GraphicsOptions PlayerVisuals = THSharpSettings.THSharpConfigManager.GetBindable<GraphicsOptions>(THSharpSetting.PlayerVisuals);
-
-        private readonly DebugConfiguration configuration = THSharpSettings.THSharpConfigManager.GetBindable<DebugConfiguration>(THSharpSetting.DebugConfiguration);
-
-        protected readonly THSharpNeuralContainer THSharpNeuralContainer;
+        //protected readonly Gamemodes Gamemode = THSharpSettings.THSharpConfigManager.GetBindable<Gamemodes>(THSharpSetting.GameMode);
 
         public readonly THSharpPlayer Player;
 
@@ -49,7 +45,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
         {
             get
             {
-                if (Gamemode == Gamemodes.Touhosu)
+                if (true)//Gamemode == Gamemodes.Touhosu)
                     return new Vector4(0, 512, 0, 820);
                 else
                     return new Vector4(0, 512, 0, 820);
@@ -155,100 +151,13 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             }
         }
 
-        protected override void LoadAnimationSprites(TextureStore textures, Storage storage)
+        protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
         {
             base.LoadAnimationSprites(textures, storage);
 
-            RightSprite.Texture = THSharpSkinElement.LoadSkinElement(CharacterName + "Right", storage);
-            KiaiRightSprite.Texture = THSharpSkinElement.LoadSkinElement(CharacterName + "KiaiRight", storage);
+            RightSprite.Texture = textures.LoadSkinElement(CharacterName + "Right", storage);
+            KiaiRightSprite.Texture = textures.LoadSkinElement(CharacterName + "KiaiRight", storage);
         }
-
-        #region Beat Handling
-        protected override void OnNewBeat(int beatIndex, TimingControlPoint timingPoint, EffectControlPoint effectPoint, TrackAmplitudes amplitudes)
-        {
-            base.OnNewBeat(beatIndex, timingPoint, effectPoint, amplitudes);
-
-            float amplitudeAdjust = Math.Min(1, 0.4f + amplitudes.Maximum);
-
-            beatLength = timingPoint.BeatLength;
-
-            OnHalfBeat();
-            lastQuarterBeat = Time.Current;
-            nextHalfBeat = Time.Current + timingPoint.BeatLength / 2;
-            nextQuarterBeat = Time.Current + timingPoint.BeatLength / 4;
-
-            const double beat_in_time = 60;
-
-            Seal.Sign.ScaleTo(1 - 0.02f * amplitudeAdjust, beat_in_time, Easing.Out);
-            using (Seal.Sign.BeginDelayedSequence(beat_in_time))
-                Seal.Sign.ScaleTo(1, beatLength * 2, Easing.OutQuint);
-
-            if (effectPoint.KiaiMode && Gamemode != Gamemodes.Touhosu)
-            {
-                Seal.Sign.FadeTo(0.25f * amplitudeAdjust, beat_in_time, Easing.Out);
-                using (Seal.Sign.BeginDelayedSequence(beat_in_time))
-                    Seal.Sign.FadeOut(beatLength);
-            }
-
-            if (effectPoint.KiaiMode && SoulContainer.Alpha == 1 && PlayerVisuals != GraphicsOptions.StandardV2)
-            {
-                if (!Dead && Gamemode != Gamemodes.Gravaru)
-                {
-                    KiaiContainer.FadeInFromZero(timingPoint.BeatLength / 4);
-                    SoulContainer.FadeOutFromOne(timingPoint.BeatLength / 4);
-                }
-
-                if (Gamemode != Gamemodes.Touhosu)
-                    Seal.Sign.FadeTo(0.15f, timingPoint.BeatLength / 4);
-            }
-            if (!effectPoint.KiaiMode && KiaiContainer.Alpha == 1 && PlayerVisuals != GraphicsOptions.StandardV2)
-            {
-                if (!Dead && Gamemode != Gamemodes.Gravaru)
-                {
-                    SoulContainer.FadeInFromZero(timingPoint.BeatLength);
-                    KiaiContainer.FadeOutFromOne(timingPoint.BeatLength);
-                }
-
-                if (Gamemode != Gamemodes.Touhosu)
-                    Seal.Sign.FadeTo(0f, timingPoint.BeatLength);
-            }
-        }
-
-        protected virtual void OnHalfBeat()
-        {
-            nextHalfBeat = -1;
-
-            if (Actions[THSharpAction.Shoot])
-                PatternWave();
-        }
-
-        protected virtual void OnQuarterBeat()
-        {
-            lastQuarterBeat = nextQuarterBeat;
-            nextQuarterBeat += beatLength / 4;
-
-            if (HealingBullets.Count > 0)
-            {
-                double fallOff = 1;
-
-                for (int i = 0; i < HealingBullets.Count - 1; i++)
-                    fallOff *= HEALING_FALL_OFF;
-
-                foreach (HealingBullet HealingBullet in HealingBullets)
-                {
-                    Heal((GetBulletHealingMultiplier(HealingBullet.EdgeDistance) * fallOff) * HealingMultiplier);
-                }
-                HealingBullets = new List<HealingBullet>();
-                HealingMultiplier = 1;
-
-                if (Gamemode != Gamemodes.Touhosu)
-                {
-                    Seal.Sign.Alpha = 0.2f;
-                    Seal.Sign.FadeOut(beatLength / 4);
-                }
-            }
-        }
-        #endregion
 
         protected override void Update()
         {

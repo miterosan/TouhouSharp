@@ -11,6 +11,8 @@ using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
+using touhou.sharp.Game.Characters.Pieces;
+using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Characters
 {
@@ -178,10 +180,10 @@ namespace touhou.sharp.Game.Characters
         /// </summary>
         protected virtual void ParseBullet(DrawableBullet bullet) { }
 
-        protected virtual void LoadAnimationSprites(TextureStore textures, Storage storage)
+        protected virtual void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
         {
-            StillSprite.Texture = THSharpSkinElement.LoadSkinElement(CharacterName, storage);
-            KiaiStillSprite.Texture = THSharpSkinElement.LoadSkinElement(CharacterName + "Kiai", storage);
+            StillSprite.Texture = textures.LoadSkinElement(CharacterName, storage);
+            KiaiStillSprite.Texture = textures.LoadSkinElement(CharacterName + "Kiai", storage);
         }
 
         /// <summary>

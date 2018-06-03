@@ -2,7 +2,7 @@
 
 namespace Symcol.Core.Graphics.Containers
 {
-    public class SymcolContainer : Container
+    public class SymcolCircularContainer : CircularContainer
     {
         /// <summary>
         /// Delete this fucking object!

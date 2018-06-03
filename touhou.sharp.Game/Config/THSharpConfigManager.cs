@@ -15,6 +15,8 @@ namespace touhou.sharp.Game.Config
         {
             Set(THSharpSetting.Gamemode, Gamemodes.Touhou);
 
+            Set(THSharpSetting.Skin, "Default");
+
             Set(THSharpSetting.SavedName, "User");
             Set(THSharpSetting.SavedUserID, -1);
             Set(THSharpSetting.PlayerColor, "#ffffff");
@@ -30,6 +32,8 @@ namespace touhou.sharp.Game.Config
     public enum THSharpSetting
     {
         Gamemode,
+
+        Skin,
 
         SavedName,
         SavedUserID,

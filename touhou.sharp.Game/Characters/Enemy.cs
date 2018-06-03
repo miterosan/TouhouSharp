@@ -79,30 +79,6 @@ namespace touhou.sharp.Game.Characters
             KiaiRightSprite.Texture = THSharpSkinElement.LoadSkinElement(CharacterName + "Kiai", storage);
         }
 
-        protected override void OnNewBeat(int beatIndex, TimingControlPoint timingPoint, EffectControlPoint effectPoint, TrackAmplitudes amplitudes)
-        {
-            base.OnNewBeat(beatIndex, timingPoint, effectPoint, amplitudes);
-
-            if (effectPoint.KiaiMode && SoulContainer.Alpha == 1)
-            {
-                SoulContainer.FadeOutFromOne(timingPoint.BeatLength / 4);
-
-                if (THSharpPlayfield.Boss == null)
-                    KiaiContainer.FadeInFromZero(timingPoint.BeatLength / 4);
-                else
-                    Hitbox.HitDetection = false;
-            }
-            if (!effectPoint.KiaiMode && SoulContainer.Alpha == 0)
-            {
-                SoulContainer.FadeInFromZero(timingPoint.BeatLength);
-
-                if (THSharpPlayfield.Boss == null)
-                    KiaiContainer.FadeOutFromOne(timingPoint.BeatLength);
-                else
-                    Hitbox.HitDetection = true;
-            }
-        }
-
         protected override void Death()
         {
             Dead = true;

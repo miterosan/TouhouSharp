@@ -10,4 +10,98 @@
   <ItemGroup>
     <EmbeddedResource Include="Textures\**\*" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\Textures\bulletKiai.png" />
+    <None Remove="Assets\Textures\Dean.png" />
+    <None Remove="Assets\Textures\enemy.png" />
+    <None Remove="Assets\Textures\enemyKiai.png" />
+    <None Remove="Assets\Textures\gearLarge.png" />
+    <None Remove="Assets\Textures\gearMedium.png" />
+    <None Remove="Assets\Textures\gearSmall.png" />
+    <None Remove="Assets\Textures\icon%402x.png" />
+    <None Remove="Assets\Textures\icon.png" />
+    <None Remove="Assets\Textures\Kokoro Hatano Kiai.png" />
+    <None Remove="Assets\Textures\ring.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai 0.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai 1.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai 2.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai 3.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai 4.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai 5.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai 6.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai 7.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Left 0.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Left 1.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Left 2.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Left 3.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Left 4.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Left 5.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Left 6.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Left 7.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Right 0.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Right 1.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Right 2.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Right 3.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Right 4.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Right 5.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Right 6.png" />
+    <None Remove="Assets\Textures\Sakuya Izayoi Kiai Right 7.png" />
+    <None Remove="Assets\Textures\SakuyaIzayoi.png" />
+    <None Remove="Assets\Textures\SakuyaIzayoiKiai.png" />
+    <None Remove="Assets\Textures\SakuyaIzayoiKiaiRight.png" />
+    <None Remove="Assets\Textures\SakuyaIzayoiRight.png" />
+    <None Remove="Assets\Textures\seal.png" />
+    <None Remove="Assets\Textures\star.png" />
+    <None Remove="Assets\Textures\starFill.png" />
+    <None Remove="Assets\Textures\vitaru spring 2018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Textures\bulletKiai.png" />
+    <EmbeddedResource Include="Assets\Textures\Dean.png" />
+    <EmbeddedResource Include="Assets\Textures\enemy.png" />
+    <EmbeddedResource Include="Assets\Textures\enemyKiai.png" />
+    <EmbeddedResource Include="Assets\Textures\gearLarge.png" />
+    <EmbeddedResource Include="Assets\Textures\gearMedium.png" />
+    <EmbeddedResource Include="Assets\Textures\gearSmall.png" />
+    <EmbeddedResource Include="Assets\Textures\icon.png" />
+    <EmbeddedResource Include="Assets\Textures\icon@2x.png" />
+    <EmbeddedResource Include="Assets\Textures\Kokoro Hatano Kiai.png" />
+    <EmbeddedResource Include="Assets\Textures\ring.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai 0.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai 1.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai 2.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai 3.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai 4.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai 5.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai 6.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai 7.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Left 0.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Left 1.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Left 2.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Left 3.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Left 4.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Left 5.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Left 6.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Left 7.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Right 0.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Right 1.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Right 2.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Right 3.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Right 4.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Right 5.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Right 6.png" />
+    <EmbeddedResource Include="Assets\Textures\Sakuya Izayoi Kiai Right 7.png" />
+    <EmbeddedResource Include="Assets\Textures\SakuyaIzayoi.png" />
+    <EmbeddedResource Include="Assets\Textures\SakuyaIzayoiKiai.png" />
+    <EmbeddedResource Include="Assets\Textures\SakuyaIzayoiKiaiRight.png" />
+    <EmbeddedResource Include="Assets\Textures\SakuyaIzayoiRight.png" />
+    <EmbeddedResource Include="Assets\Textures\seal.png" />
+    <EmbeddedResource Include="Assets\Textures\star.png" />
+    <EmbeddedResource Include="Assets\Textures\starFill.png" />
+    <EmbeddedResource Include="Assets\Textures\vitaru spring 2018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Samples\" />
+    <Folder Include="Assets\Tracks\" />
+  </ItemGroup>
 </Project>

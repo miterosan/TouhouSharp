@@ -1,15 +1,12 @@
 ﻿using OpenTK;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
 using System;
 
 namespace Symcol.Core.Graphics.Containers
 {
-    public class SymcolDialContainer : CircularContainer
+    public class SymcolDialContainer : SymcolCircularContainer
     {
-        public override bool HandleMouseInput => true;
-
         public override bool ReceiveMouseInputAt(Vector2 screenSpacePos) => true;
 
         private Vector2 mousePosition;
