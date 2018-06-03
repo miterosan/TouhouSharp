@@ -21,12 +21,14 @@ namespace touhou.sharp.Game.Gameplay.Characters.Pieces
 
         private CircularContainer characterSigil;
 
+        // ReSharper disable once NotAccessedField.Local
         private SpriteText rightValue;
         private SpriteText leftValue;
 
         private CircularProgress health;
         private CircularProgress energy;
 
+        // ReSharper disable once FieldCanBeMadeReadOnly.Local
         private Character character;
 
         private Sprite gear1;
@@ -174,8 +176,6 @@ namespace touhou.sharp.Game.Gameplay.Characters.Pieces
 
                 switch (v.Player.FileName)
                 {
-                    default:
-                        break;
                     case "SakuyaIzayoi":
                         characterSigil.Children = new Drawable[]
                         {
@@ -274,8 +274,6 @@ namespace touhou.sharp.Game.Gameplay.Characters.Pieces
 
                 switch (v.Player.FileName)
                 {
-                    default:
-                        break;
                     case "SakuyaIzayoi":
                         float speed = 0.25f;
                         gear1.RotateTo((float)(Clock.CurrentTime / 1000 * 90) * 1.25f * speed);

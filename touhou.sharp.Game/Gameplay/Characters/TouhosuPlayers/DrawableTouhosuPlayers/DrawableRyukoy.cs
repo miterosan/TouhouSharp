@@ -3,7 +3,6 @@ using osu.Framework.Allocation;
 using osu.Framework.Audio;
 using osu.Framework.Configuration;
 using osu.Framework.Timing;
-using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.NeuralNetworking;
 
 namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
@@ -29,12 +28,6 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
             };
         }
 
-        [BackgroundDependencyLoader]
-        private void load()
-        {
-
-        }
-
         protected override void SpellUpdate()
         {
             base.SpellUpdate();
@@ -48,6 +41,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                 abstraction.Value = 0;
         }
 
+        // ReSharper disable once UnusedMember.Local
         private void applyToClock(IAdjustableClock clock, double pitch)
         {
             if (clock is IHasPitchAdjust pitchAdjust)

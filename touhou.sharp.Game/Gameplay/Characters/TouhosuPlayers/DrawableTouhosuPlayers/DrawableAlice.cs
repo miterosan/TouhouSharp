@@ -1,5 +1,4 @@
 ﻿using osu.Framework.Graphics;
-using touhou.sharp.Game.Gameplay.Playfield;
 
 namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
@@ -20,6 +19,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
             if (SpellActive)
             {
                 foreach (Drawable drawable in THSharpPlayfield.GameField.Current)
+                    // ReSharper disable once UnusedVariable
                     if (drawable is DrawableTouhosuPlayer drawableTouhosuPlayer)
                     {
                         

@@ -20,7 +20,9 @@ namespace Symcol.Core.Graphics.Text
         protected virtual bool MarkerNeedsEnd => true;
 
         /// <summary>
-        /// Overrides any existing text and adds the new one with <see cref="AddFormattedText(string,Action{SpriteText}(osu.Framework.Graphics.Sprites.SpriteText))"/>
+        /// Overrides any existing text and adds the new one with <see>
+        ///         <cref>AddFormattedText(string,Action{SpriteText}(osu.Framework.Graphics.Sprites.SpriteText))</cref>
+        ///     </see>
         /// </summary>
         public string FormattedText
         {

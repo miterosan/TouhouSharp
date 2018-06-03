@@ -1,7 +1,5 @@
 ﻿using osu.Framework.Graphics;
-using osu.Framework.Platform;
 using OpenTK;
-using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Gameplay.Characters
@@ -18,6 +16,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
 
         public Boss(Playfield.Playfield playfield) : base(playfield)
         {
+            // ReSharper disable once PossibleLossOfFraction
             Position = new Vector2(256 , 384 / 2);
             AlwaysPresent = true;
             Abstraction = 3;
@@ -37,7 +36,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
             //base.MovementAnimations();
 
             if (Seal.Alpha > 0)
-                Seal.RotateTo((float)((Clock.CurrentTime / 1000) * 90));
+                Seal.RotateTo((float)(Clock.CurrentTime / 1000 * 90));
         }
 
         protected override void LoadAnimationSprites(THSharpSkinElement textures)

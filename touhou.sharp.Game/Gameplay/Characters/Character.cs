@@ -5,14 +5,11 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
-using osu.Framework.Graphics.Textures;
-using osu.Framework.Platform;
 using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
 using touhou.sharp.Game.Gameplay.Characters.Pieces;
-using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Gameplay.Characters
@@ -137,6 +134,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
             if (Health <= 0 && !Dead)
                 Death();
 
+            // ReSharper disable once UnusedVariable
             foreach (Drawable draw in THSharpPlayfield.GameField.Current)
             {
                 /*

@@ -1,13 +1,8 @@
 ﻿using System;
-using osu.Framework.Allocation;
 using osu.Framework.Audio;
-using osu.Framework.Configuration;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Textures;
-using osu.Framework.Platform;
 using osu.Framework.Timing;
 using Symcol.Core.Graphics.Sprites;
-using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 using touhou.sharp.Game.NeuralNetworking;
 
@@ -58,7 +53,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                 {
                     RelativeSizeAxes = Axes.Both,
                     UpdateRate = 100,
-                    Textures = new Texture[]
+                    Textures = new[]
                     {
                         textures.GetSkinTextureElement(Player.Name + " Kiai 0"),
                         textures.GetSkinTextureElement(Player.Name + " Kiai 1"),
@@ -75,7 +70,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                     Alpha = 0,
                     RelativeSizeAxes = Axes.Both,
                     UpdateRate = 100,
-                    Textures = new Texture[]
+                    Textures = new[]
                     {
                         textures.GetSkinTextureElement(Player.Name + " Kiai Left 0"),
                         textures.GetSkinTextureElement(Player.Name + " Kiai Left 1"),
@@ -92,7 +87,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                     Alpha = 0,
                     RelativeSizeAxes = Axes.Both,
                     UpdateRate = 100,
-                    Textures = new Texture[]
+                    Textures = new[]
                     {
                         textures.GetSkinTextureElement(Player.Name + " Kiai Right 0"),
                         textures.GetSkinTextureElement(Player.Name + " Kiai Right 1"),
@@ -178,6 +173,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
         }
         */
 
+        // ReSharper disable once UnusedMember.Local
         private void applyToClock(IAdjustableClock clock, double speed)
         {
             if (clock is IHasPitchAdjust pitchAdjust)

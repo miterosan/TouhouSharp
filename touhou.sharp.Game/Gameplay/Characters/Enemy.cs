@@ -1,7 +1,5 @@
-﻿using osu.Framework.Platform;
-using OpenTK;
+﻿using OpenTK;
 using OpenTK.Graphics;
-using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Gameplay.Characters
@@ -16,7 +14,9 @@ namespace touhou.sharp.Game.Gameplay.Characters
 
         protected override float HitboxWidth => 48;
 
+#pragma warning disable 649
         private Color4 characterColor;
+#pragma warning restore 649
 
         public Enemy(Playfield.Playfield playfield) : base(playfield)
         {

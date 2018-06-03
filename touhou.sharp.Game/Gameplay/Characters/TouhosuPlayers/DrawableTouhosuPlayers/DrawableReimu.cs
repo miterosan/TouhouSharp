@@ -1,7 +1,6 @@
 ﻿using System;
 using osu.Framework.Graphics;
 using OpenTK;
-using touhou.sharp.Game.Gameplay.Playfield;
 
 namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {

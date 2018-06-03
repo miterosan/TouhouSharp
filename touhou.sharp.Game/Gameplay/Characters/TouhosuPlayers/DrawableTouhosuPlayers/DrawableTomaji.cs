@@ -1,7 +1,6 @@
 ﻿using System;
 using osu.Framework.Graphics;
 using OpenTK;
-using touhou.sharp.Game.Gameplay.Playfield;
 
 namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
@@ -28,13 +27,13 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
             {
                 double fullChargeTime = SpellStartTime + charge_time;
 
-                charge = Math.Min(1 - ((fullChargeTime - Time.Current) / charge_time), 1);
+                charge = Math.Min(1 - (fullChargeTime - Time.Current) / charge_time, 1);
 
                 Energy -= (Clock.ElapsedFrameTime / 1000) * TouhosuPlayer.EnergyDrainRate * charge;
             }
             else if (charge > 0)
             {
-                double cursorAngle = (MathHelper.RadiansToDegrees(Math.Atan2((Cursor.Position.Y - Position.Y), (Cursor.Position.X - Position.X))) + Rotation) - 12;
+                double cursorAngle = (MathHelper.RadiansToDegrees(Math.Atan2(Cursor.Position.Y - Position.Y, Cursor.Position.X - Position.X)) + Rotation) - 12;
                 double x = Position.X + (charge * blink_distance) * Math.Cos(MathHelper.DegreesToRadians(cursorAngle));
                 double y = Position.Y + (charge * blink_distance) * Math.Sin(MathHelper.DegreesToRadians(cursorAngle));
 
