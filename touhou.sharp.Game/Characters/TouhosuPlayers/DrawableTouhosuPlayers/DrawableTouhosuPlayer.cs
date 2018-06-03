@@ -2,6 +2,7 @@
 using osu.Framework.Allocation;
 using osu.Framework.Configuration;
 using touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers;
+using touhou.sharp.Game.Gameplay;
 
 namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
@@ -36,13 +37,6 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
         {
             if (!Puppet)
                 DebugToolkit.GeneralDebugItems.Add(new DebugAction(() => { EnergyHacks = !EnergyHacks; }) { Text = "Energy Hacks" });
-        }
-
-        protected override void OnQuarterBeat()
-        {
-            base.OnQuarterBeat();
-
-            EnergyGainMultiplier = 1;
         }
 
         protected override void Update()

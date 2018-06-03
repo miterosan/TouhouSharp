@@ -12,6 +12,7 @@ using OpenTK.Graphics;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
 using touhou.sharp.Game.Characters.Pieces;
+using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Characters
@@ -49,7 +50,7 @@ namespace touhou.sharp.Game.Characters
 
         public bool Dead { get; protected set; }
 
-        protected readonly SymcolContainer THSharpPlayfield;
+        protected readonly THSharpPlayfield THSharpPlayfield;
 
         public int Abstraction { get; set; }
 
@@ -61,9 +62,9 @@ namespace touhou.sharp.Game.Characters
         protected float LastX;
         #endregion
 
-        protected Character(SymcolContainer vitaruPlayfield)
+        protected Character(THSharpPlayfield playfield)
         {
-            THSharpPlayfield = vitaruPlayfield;
+            THSharpPlayfield = playfield;
         }
 
         /// <summary>

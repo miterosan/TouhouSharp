@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using osu.Framework.Allocation;
-using osu.Framework.Audio.Track;
-using osu.Framework.Configuration;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
 using OpenTK;
 using OpenTK.Graphics;
-using Symcol.Core.NeuralNetworking;
-using touhou.sharp.Game.Config;
 using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
@@ -34,8 +30,6 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
 
         public override Color4 ComplementaryColor => Player.ComplementaryColor;
 
-        public int ScoreZone = 100;
-
         public double SpeedMultiplier = 1;
 
         public Dictionary<THSharpAction, bool> Actions = new Dictionary<THSharpAction, bool>();
@@ -54,7 +48,9 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
 
         protected readonly Container Cursor;
 
-        protected readonly THSharpNetworkingClientHandler THSharpNetworkingClientHandler;
+        protected readonly THSharpInputHandler THSharpInputHandler;
+
+        //protected readonly THSharpNetworkingClientHandler THSharpNetworkingClientHandler;
 
         /// <summary>
         /// Are we a slave over the net?
@@ -91,15 +87,15 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
         private const double healing_max = 2d;
         #endregion
 
-        public DrawableTHSharpPlayer(THSharpPlayfield playfield, THSharpPlayer player, THSharpNetworkingClientHandler vitaruNetworkingClientHandler) : base(playfield)
+        public DrawableTHSharpPlayer(THSharpPlayfield playfield, THSharpPlayer player) : base(playfield)
         {
             Player = player;
-            THSharpNetworkingClientHandler = vitaruNetworkingClientHandler;
+            //THSharpNetworkingClientHandler = vitaruNetworkingClientHandler;
 
-            Add(THSharpNeuralContainer = new THSharpNeuralContainer(playfield, this));
+            Add(THSharpInputHandler = new THSharpInputHandler( ));
 
-            THSharpNeuralContainer.Pressed = Pressed;
-            THSharpNeuralContainer.Released = Released;
+            THSharpInputHandler.Pressed = Pressed;
+            THSharpInputHandler.Released = Released;
 
             Actions[THSharpAction.Up] = false;
             Actions[THSharpAction.Down] = false;
@@ -127,6 +123,7 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
         [BackgroundDependencyLoader]
         private void load()
         {
+            /*
             if (!Puppet)
             {
                 switch (configuration)
@@ -149,14 +146,15 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
                         break;
                 }
             }
+            */
         }
 
         protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
         {
             base.LoadAnimationSprites(textures, storage);
 
-            RightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Right", storage);
-            KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "KiaiRight", storage);
+            RightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Right");
+            KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "KiaiRight");
         }
 
         protected override void Update()

@@ -77,8 +77,8 @@ namespace touhou.sharp.Game.Characters
         protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
         {
             base.LoadAnimationSprites(textures, storage);
-            RightSprite.Texture = textures.LoadSkinElement(CharacterName);
-            KiaiRightSprite.Texture = textures.LoadSkinElement(CharacterName + "Kiai");
+            RightSprite.Texture = textures.GetSkinTextureElement(CharacterName);
+            KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Kiai");
         }
 
         protected override void Death()

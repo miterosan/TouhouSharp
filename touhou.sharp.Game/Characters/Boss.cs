@@ -1,10 +1,10 @@
 ﻿using System;
-using osu.Framework.Audio.Track;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
 using OpenTK;
+using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Characters
 {
@@ -17,8 +17,6 @@ namespace touhou.sharp.Game.Characters
         protected override string CharacterName => "Kokoro Hatano";
 
         protected override float HitboxWidth => 64;
-
-        private Sprite dean;
 
         public Boss(THSharpPlayfield playfield) : base(playfield)
         {
@@ -44,7 +42,7 @@ namespace touhou.sharp.Game.Characters
                 Seal.RotateTo((float)((Clock.CurrentTime / 1000) * 90));
         }
 
-        protected override void LoadAnimationSprites(TextureStore textures, Storage storage)
+        protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
         {
             SoulContainer.Alpha = 0;
             KiaiContainer.Alpha = 1;

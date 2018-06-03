@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Symcol.Core.NeuralNetworking;
+﻿using Symcol.Core.NeuralNetworking;
 using touhou.sharp.Game.NeuralNetworking;
 
 namespace touhou.sharp.Game.Gameplay
