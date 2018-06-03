@@ -17,8 +17,11 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
 
         public double SetRate { get; private set; } = 0.75d;
 
+#pragma warning disable 649
         private double originalRate;
+#pragma warning restore 649
 
+        // ReSharper disable once NotAccessedField.Local
         private double currentRate = 1;
 
         //private readonly Bindable<WorkingBeatmap> workingBeatmap = new Bindable<WorkingBeatmap>();
@@ -26,7 +29,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
 
         public DrawableSakuya(Playfield.Playfield playfield) : base(playfield, new Sakuya())
         {
-            Spell += (action) =>
+            Spell += action =>
             {
                 //if (originalRate == 0)
                     //originalRate = (float)workingBeatmap.Value.Track.Rate;
@@ -49,7 +52,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
 
             KiaiContainer.AddRange(new Drawable[]
             {
-                Idle = new AnimatedSprite()
+                Idle = new AnimatedSprite
                 {
                     RelativeSizeAxes = Axes.Both,
                     UpdateRate = 100,
@@ -65,7 +68,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                         textures.GetSkinTextureElement(Player.Name + " Kiai 7"),
                     }
                 },
-                Left = new AnimatedSprite()
+                Left = new AnimatedSprite
                 {
                     Alpha = 0,
                     RelativeSizeAxes = Axes.Both,
@@ -82,7 +85,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                         textures.GetSkinTextureElement(Player.Name + " Kiai Left 7"),
                     }
                 },
-                Right = new AnimatedSprite()
+                Right = new AnimatedSprite
                 {
                     Alpha = 0,
                     RelativeSizeAxes = Axes.Both,
@@ -187,19 +190,9 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
             base.Pressed(action);
 
             if (action == THSharpAction.Increase)
-            {
-                if (Actions[THSharpAction.Slow])
-                    SetRate = Math.Min(Math.Round(SetRate + 0.05d, 2), 2d);
-                else
-                    SetRate = Math.Min(Math.Round(SetRate + 0.25d, 2), 2d);
-            }
+                SetRate = Math.Min(Actions[THSharpAction.Slow] ? Math.Round(SetRate + 0.05d, 2) : Math.Round(SetRate + 0.25d, 2), 2d);
             if (action == THSharpAction.Decrease)
-            {
-                if (Actions[THSharpAction.Slow])
-                    SetRate = Math.Max(Math.Round(SetRate - 0.05d, 2), 0.25d);
-                else
-                    SetRate = Math.Max(Math.Round(SetRate - 0.25d, 2), 0.25d);
-            }
+                SetRate = Math.Max(Actions[THSharpAction.Slow] ? Math.Round(SetRate - 0.05d, 2) : Math.Round(SetRate - 0.25d, 2), 0.25d);
         }
     }
 }

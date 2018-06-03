@@ -54,10 +54,7 @@ namespace touhou.sharp.Game.Graphics
         /// <summary>
         /// Will attempt to get a skin element fron the skin, if no element is found return the default element
         /// </summary>
-        /// <param name="stockTextures"></param>
-        /// <param name="skin"></param>
         /// <param name="fileName"></param>
-        /// <param name="storage"></param>
         /// <returns></returns>
         public Texture GetSkinTextureElement(string fileName)
         {
@@ -92,9 +89,7 @@ namespace touhou.sharp.Game.Graphics
         /// <summary>
         /// Will attempt to get a skin element from the skin, if no element is found return null
         /// </summary>
-        /// <param name="skin"></param>
         /// <param name="fileName"></param>
-        /// <param name="storage"></param>
         /// <returns></returns>
         public Texture GetTextureElement(string fileName)
         {

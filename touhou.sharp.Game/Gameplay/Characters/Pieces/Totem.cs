@@ -1,7 +1,4 @@
-﻿using osu.Framework.Graphics;
-using osu.Framework.Graphics.Shapes;
-using OpenTK;
-using Symcol.Core.Graphics.Containers;
+﻿using Symcol.Core.Graphics.Containers;
 
 namespace touhou.sharp.Game.Gameplay.Characters.Pieces
 {

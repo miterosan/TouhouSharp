@@ -4,10 +4,8 @@ using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Platform;
 using OpenTK;
 using OpenTK.Graphics;
-using touhou.sharp.Game.Gameplay.Playfield;
 using touhou.sharp.Game.Graphics;
 using touhou.sharp.Game.NeuralNetworking;
 
@@ -41,6 +39,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
             {
                 if (true)//Gamemode == Gamemodes.Touhosu)
                     return new Vector4(0, 512, 0, 820);
+                // ReSharper disable once RedundantIfElseBlock
                 else
                     return new Vector4(0, 512, 0, 820);
             }
@@ -55,6 +54,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         /// <summary>
         /// Are we a slave over the net?
         /// </summary>
+        // ReSharper disable once UnusedMember.Global
         public bool Puppet { get; set; }
 
         /// <summary>
@@ -67,19 +67,18 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         protected bool BoundryHacks { get; private set; }
 
         //Is reset after healing applied
+        // ReSharper disable once NotAccessedField.Global
         public double HealingMultiplier = 1;
 
+        // ReSharper disable once UnusedMember.Global
         public string PlayerID;
-
-        private double lastQuarterBeat = -1;
-        private double nextHalfBeat = -1;
-        private double nextQuarterBeat = -1;
-        private double beatLength = 1000;
 
         //protected List<HealingBullet> HealingBullets { get; private set; } = new List<HealingBullet>();
 
+        // ReSharper disable once UnusedMember.Global
         protected const double HEALING_FALL_OFF = 0.85d;
 
+        // ReSharper disable once UnusedMember.Local
         private const double field_of_view = 120;
 
         private const double healing_range = 64;
@@ -118,35 +117,6 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
                     RelativeSizeAxes = Axes.Both
                 }
             });
-        }
-
-        [BackgroundDependencyLoader]
-        private void load()
-        {
-            /*
-            if (!Puppet)
-            {
-                switch (configuration)
-                {
-                    case DebugConfiguration.General:
-                        DebugToolkit.GeneralDebugItems.Add(new DebugAction(() => { Auto = !Auto; }) { Text = "Auto Hacks" });
-                        DebugToolkit.GeneralDebugItems.Add(new DebugAction(() => { BoundryHacks = !BoundryHacks; DrawableBullet.BoundryHacks = !DrawableBullet.BoundryHacks; }) { Text = "Boundry Hacks" });
-                        DebugToolkit.GeneralDebugItems.Add(new DebugAction(() => { HealthHacks = !HealthHacks; }) { Text = "Health Hacks" });
-                        break;
-                    case DebugConfiguration.NeuralNetworking:
-                        Bindable<NeuralNetworkState> bindable = THSharpSettings.THSharpConfigManager.GetBindable<NeuralNetworkState>(THSharpSetting.NeuralNetworkState);
-                        bindable.ValueChanged += value => { THSharpNeuralContainer.TensorFlowBrain.NeuralNetworkState = value; };
-                        bindable.TriggerChange();
-
-                        DebugToolkit.MachineLearningDebugItems.Add(new DebugStat<NeuralNetworkState>(bindable) { Text = "Neural Network State" });
-                        DebugToolkit.MachineLearningDebugItems.Add(new DebugAction(() => { bindable.Value = NeuralNetworkState.Idle; }, false) { Text = "Set Idle State" });
-                        DebugToolkit.MachineLearningDebugItems.Add(new DebugAction(() => { bindable.Value = NeuralNetworkState.Learning; }, false) { Text = "Set Learning State" });
-                        DebugToolkit.MachineLearningDebugItems.Add(new DebugAction(() => { bindable.Value = NeuralNetworkState.Active; }, false) { Text = "Set Active State" });
-                        DebugToolkit.MachineLearningDebugItems.Add(new DebugAction(() => { HealthHacks = !HealthHacks; }) { Text = "Health Hacks" });
-                        break;
-                }
-            }
-            */
         }
 
         protected override void LoadAnimationSprites(THSharpSkinElement textures)
@@ -204,7 +174,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
                         }
                     }
 
-                Cursor.Position = closestCharacter.Position;
+                if (closestCharacter != null) Cursor.Position = closestCharacter.Position;
             }
             //else if (!Puppet)
                 //Cursor.Position = THSharpCursor.CenterCircle.ToSpaceOfOtherDrawable(Vector2.Zero, Parent) + new Vector2(6);
@@ -378,7 +348,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
 
         protected double GetBulletHealingMultiplier(double value)
         {
-            double scale = (healing_max - healing_min) / (0 - healing_range);
+            const double scale = (healing_max - healing_min) / (0 - healing_range);
             return healing_min + ((value - healing_range) * scale);
         }
 
@@ -461,47 +431,60 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
 
         protected virtual void Pressed(THSharpAction action)
         {
-            //Keyboard Stuff
-            if (action == THSharpAction.Up)
-                Actions[THSharpAction.Up] = true;
-            if (action == THSharpAction.Down)
-                Actions[THSharpAction.Down] = true;
-            if (action == THSharpAction.Left)
-                Actions[THSharpAction.Left] = true;
-            if (action == THSharpAction.Right)
-                Actions[THSharpAction.Right] = true;
-            if (action == THSharpAction.Slow)
+            switch (action)
             {
-                Actions[THSharpAction.Slow] = true;
-                VisibleHitbox.Alpha = 1;
+                //Keyboard Stuff
+                case THSharpAction.Up:
+                    Actions[THSharpAction.Up] = true;
+                    break;
+                case THSharpAction.Down:
+                    Actions[THSharpAction.Down] = true;
+                    break;
+                case THSharpAction.Left:
+                    Actions[THSharpAction.Left] = true;
+                    break;
+                case THSharpAction.Right:
+                    Actions[THSharpAction.Right] = true;
+                    break;
+                case THSharpAction.Slow:
+                    Actions[THSharpAction.Slow] = true;
+                    VisibleHitbox.Alpha = 1;
+                    break;
+                //Mouse Stuff
+                case THSharpAction.Shoot:
+                    Actions[THSharpAction.Shoot] = true;
+                    break;
             }
-
-            //Mouse Stuff
-            if (action == THSharpAction.Shoot)
-                Actions[THSharpAction.Shoot] = true;
 
             //sendPacket(action);
         }
 
         protected virtual void Released(THSharpAction action)
         {
-            //Keyboard Stuff
-            if (action == THSharpAction.Up)
-                Actions[THSharpAction.Up] = false;
-            if (action == THSharpAction.Down)
-                Actions[THSharpAction.Down] = false;
-            if (action == THSharpAction.Left)
-                Actions[THSharpAction.Left] = false;
-            if (action == THSharpAction.Right)
-                Actions[THSharpAction.Right] = false;
-            if (action == THSharpAction.Slow)
+            switch (action)
             {
-                Actions[THSharpAction.Slow] = false;
-                VisibleHitbox.Alpha = 0;
+                //Keyboard Stuff
+                case THSharpAction.Up:
+                    Actions[THSharpAction.Up] = false;
+                    break;
+                case THSharpAction.Down:
+                    Actions[THSharpAction.Down] = false;
+                    break;
+                case THSharpAction.Left:
+                    Actions[THSharpAction.Left] = false;
+                    break;
+                case THSharpAction.Right:
+                    Actions[THSharpAction.Right] = false;
+                    break;
+                case THSharpAction.Slow:
+                    Actions[THSharpAction.Slow] = false;
+                    VisibleHitbox.Alpha = 0;
+                    break;
+                //Mouse Stuff
+                case THSharpAction.Shoot:
+                    Actions[THSharpAction.Shoot] = false;
+                    break;
             }
-            //Mouse Stuff
-            if (action == THSharpAction.Shoot)
-                Actions[THSharpAction.Shoot] = false;
 
             //sendPacket(THSharpAction.None, action);
         }

@@ -6,10 +6,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
     {
         public DrawableAlice(Playfield.Playfield playfield) : base(playfield, new Alice())
         {
-            Spell += (input) =>
-            {
 
-            };
         }
 
         protected override void SpellUpdate()

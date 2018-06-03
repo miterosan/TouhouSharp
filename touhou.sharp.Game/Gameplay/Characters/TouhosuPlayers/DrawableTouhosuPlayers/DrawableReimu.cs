@@ -33,7 +33,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                         {
                             drawableTouhosuPlayer.HealingMultiplier = getLeaderDistanceMultiplier(distance);
                             drawableTouhosuPlayer.EnergyGainMultiplier = getLeaderDistanceMultiplier(distance);
-                            Energy -= (Clock.ElapsedFrameTime / 1000) * TouhosuPlayer.EnergyDrainRate;
+                            Energy -= Clock.ElapsedFrameTime / 1000 * TouhosuPlayer.EnergyDrainRate;
                         }
                         else
                         {
@@ -46,8 +46,8 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
 
         private double getLeaderDistanceMultiplier(double value)
         {
-            double scale = (leader_max - leader_min) / (leader_max_range - leader_min_range);
-            return leader_min + ((value - leader_min_range) * scale);
+            const double scale = (leader_max - leader_min) / (leader_max_range - leader_min_range);
+            return leader_min + (value - leader_min_range) * scale;
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using osu.Framework.Allocation;
 using osu.Framework.Audio;
 using osu.Framework.Configuration;
 using osu.Framework.Timing;
@@ -22,10 +21,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
             this.abstraction = abstraction;
             Abstraction = 3;
 
-            Spell += (input) =>
-            {
-                abstraction.Value = level;
-            };
+            Spell += input => abstraction.Value = level;
         }
 
         protected override void SpellUpdate()
@@ -34,7 +30,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
 
             if (SpellActive)
             {
-                Energy -= (Clock.ElapsedFrameTime / 1000) * TouhosuPlayer.EnergyDrainRate * (level * 0.25f);
+                Energy -= Clock.ElapsedFrameTime / 1000 * TouhosuPlayer.EnergyDrainRate * (level * 0.25f);
                 abstraction.Value = level;
             }
             else
@@ -49,9 +45,9 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                 pitchAdjust.PitchAdjust = pitch;
 
                 if (setPitch > 1)
-                    clock.Rate = (1 - (pitch - 1) / 2);
+                    clock.Rate = 1 - (pitch - 1) / 2;
                 else if (setPitch < 1)
-                    clock.Rate = (1 + (pitch - 1) * -2);
+                    clock.Rate = 1 + (pitch - 1) * -2;
                 else
                     clock.Rate = 1;
             }
@@ -82,14 +78,5 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
                     break;
             }
         }
-
-        #region Touhosu Story Content
-        public const string Background = "Being the elder sibling comes with many responsabilitys in the Hakurei family. " +
-            "She has the weight of the Hakurei name to uphold as the next inline to be the keeper of their family shrine. " +
-            "Her mother would tell her stories about her adventures with her friends to stop the evil fairies from claiming it, and how they always would succeed. " +
-            "One day she would like to go on an adventure of her own she would think. \"Becareful what you wish for\" Reimu would tell her. " +
-            "Now that she is almost a legal adult she has a very different view however, she is calm and level headed. " +
-            "She doesn't actively seek trouble to solve or ways to cause trouble, she simply wishes for peace, quiet and an easy life as the next Hakurei Maiden.";
-        #endregion
     }
 }

@@ -16,6 +16,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers
 
         public virtual Difficulty Difficulty { get; } = Difficulty.Easy;
 
+        // ReSharper disable once UnassignedGetOnlyAutoProperty
         public virtual bool Implemented { get; }
 
         public static TouhosuPlayer GetTouhosuPlayer(string name)
