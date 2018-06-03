@@ -2,11 +2,11 @@
 
 namespace touhou.sharp.Game.Gameplay.Playfield
 {
-    public class Playfield : SymcolContainer
+    public class GamePlayfield : SymcolContainer
     {
         public readonly AbstractionField GameField;
 
-        public Playfield()
+        public GamePlayfield()
         {
             Child = GameField = new AbstractionField();
         }

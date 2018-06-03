@@ -47,7 +47,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
 
         public bool Dead { get; protected set; }
 
-        protected readonly Playfield.Playfield THSharpPlayfield;
+        protected readonly Playfield.GamePlayfield THSharpPlayfield;
 
         public int Abstraction { get; set; }
 
@@ -59,7 +59,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
         protected float LastX;
         #endregion
 
-        protected Character(Playfield.Playfield playfield)
+        protected Character(Playfield.GamePlayfield playfield)
         {
             THSharpPlayfield = playfield;
         }

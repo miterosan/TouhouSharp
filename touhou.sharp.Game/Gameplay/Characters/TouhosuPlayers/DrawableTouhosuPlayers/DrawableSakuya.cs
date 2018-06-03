@@ -27,7 +27,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
         //private readonly Bindable<WorkingBeatmap> workingBeatmap = new Bindable<WorkingBeatmap>();
         #endregion
 
-        public DrawableSakuya(Playfield.Playfield playfield) : base(playfield, new Sakuya())
+        public DrawableSakuya(Playfield.GamePlayfield playfield) : base(playfield, new Sakuya())
         {
             Spell += action =>
             {

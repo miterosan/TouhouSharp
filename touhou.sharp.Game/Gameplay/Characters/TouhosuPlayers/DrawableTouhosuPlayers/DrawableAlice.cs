@@ -4,7 +4,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
 {
     public class DrawableAlice : DrawableTouhosuPlayer
     {
-        public DrawableAlice(Playfield.Playfield playfield) : base(playfield, new Alice())
+        public DrawableAlice(Playfield.GamePlayfield playfield) : base(playfield, new Alice())
         {
 
         }

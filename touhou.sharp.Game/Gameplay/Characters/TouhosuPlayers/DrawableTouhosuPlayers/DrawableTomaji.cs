@@ -15,7 +15,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
         /// </summary>
         private double charge;
 
-        public DrawableTomaji(Playfield.Playfield playfield) : base(playfield, new Tomaji())
+        public DrawableTomaji(Playfield.GamePlayfield playfield) : base(playfield, new Tomaji())
         {
         }
 

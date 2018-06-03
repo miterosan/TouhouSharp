@@ -49,7 +49,7 @@ namespace touhou.sharp.Game.Gameplay.Playfield
                 Current
             };
 
-            AbstractionLevel.ValueChanged += (value) =>
+            AbstractionLevel.ValueChanged += value =>
             {
                 List<Drawable> q = new List<Drawable>();
                 List<Drawable> h = new List<Drawable>();

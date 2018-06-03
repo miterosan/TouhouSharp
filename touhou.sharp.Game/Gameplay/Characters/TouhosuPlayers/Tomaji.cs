@@ -18,9 +18,9 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers
 
         public override Color4 PrimaryColor => Color4.Orange;
 
-        public override Color4 SecondaryColor => base.SecondaryColor;
+        //public override Color4 SecondaryColor => base.SecondaryColor;
 
-        public override Color4 ComplementaryColor => base.ComplementaryColor;
+        //public override Color4 ComplementaryColor => base.ComplementaryColor;
 
         public override string Spell => "Blink";
 

@@ -275,7 +275,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.Pieces
                 switch (v.Player.FileName)
                 {
                     case "SakuyaIzayoi":
-                        float speed = 0.25f;
+                        const float speed = 0.25f;
                         gear1.RotateTo((float)(Clock.CurrentTime / 1000 * 90) * 1.25f * speed);
                         gear2.RotateTo((float)(-Clock.CurrentTime / 1000 * 90) * 1.1f * speed);
                         gear3.RotateTo((float)(Clock.CurrentTime / 1000 * 90) * speed);

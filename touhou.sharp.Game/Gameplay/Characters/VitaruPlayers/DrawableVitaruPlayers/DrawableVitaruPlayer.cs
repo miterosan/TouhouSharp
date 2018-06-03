@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
@@ -41,6 +40,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
                     return new Vector4(0, 512, 0, 820);
                 // ReSharper disable once RedundantIfElseBlock
                 else
+                    // ReSharper disable once HeuristicUnreachableCode
                     return new Vector4(0, 512, 0, 820);
             }
         }
@@ -62,8 +62,10 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         /// </summary>
         public bool Auto { get; set; }
 
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         protected bool HealthHacks { get; private set; }
 
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         protected bool BoundryHacks { get; private set; }
 
         //Is reset after healing applied
@@ -86,7 +88,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         private const double healing_max = 2d;
         #endregion
 
-        public DrawableTHSharpPlayer(Playfield.Playfield playfield, THSharpPlayer player) : base(playfield)
+        public DrawableTHSharpPlayer(Playfield.GamePlayfield playfield, THSharpPlayer player) : base(playfield)
         {
             Player = player;
             //THSharpNetworkingClientHandler = vitaruNetworkingClientHandler;
@@ -490,7 +492,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         }
         #endregion
 
-        public static DrawableTHSharpPlayer GetDrawableTHSharpPlayer(Playfield.Playfield playfield, string name)
+        public static DrawableTHSharpPlayer GetDrawableTHSharpPlayer(Playfield.GamePlayfield playfield, string name)
         {
             switch (name)
             {

@@ -18,7 +18,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
         private Color4 characterColor;
 #pragma warning restore 649
 
-        public Enemy(Playfield.Playfield playfield) : base(playfield)
+        public Enemy(Playfield.GamePlayfield playfield) : base(playfield)
         {
             AlwaysPresent = true;
 

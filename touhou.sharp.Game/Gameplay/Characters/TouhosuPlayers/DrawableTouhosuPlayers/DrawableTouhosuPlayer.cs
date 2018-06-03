@@ -1,5 +1,4 @@
 ﻿using System;
-using osu.Framework.Allocation;
 using osu.Framework.Configuration;
 using touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlayers;
 using touhou.sharp.Game.Gameplay.Playfield;
@@ -19,16 +18,19 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
 
         protected double SpellStartTime { get; set; } = double.MaxValue;
 
+        // ReSharper disable once UnusedMember.Global
         protected double SpellDeActivateTime { get; set; } = double.MinValue;
 
         protected double SpellEndTime { get; set; } = double.MinValue;
 
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         protected bool EnergyHacks { get; private set; }
 
         //reset after healing is done
+        // ReSharper disable once NotAccessedField.Global
         public double EnergyGainMultiplier = 1;
 
-        public DrawableTouhosuPlayer(Playfield.Playfield playfield, TouhosuPlayer player) : base(playfield, player)
+        public DrawableTouhosuPlayer(GamePlayfield playfield, TouhosuPlayer player) : base(playfield, player)
         {
             TouhosuPlayer = player;
         }
@@ -105,7 +107,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
         }
 
         //TODO: I feel like this TODO should be obvious (figure out this bindable thing)
-        public static DrawableTouhosuPlayer GetDrawableTouhosuPlayer(Playfield.Playfield playfield, string name, Bindable<int> bindableInt = null)
+        public static DrawableTouhosuPlayer GetDrawableTouhosuPlayer(Playfield.GamePlayfield playfield, string name, Bindable<int> bindableInt = null)
         {
             switch (name)
             {

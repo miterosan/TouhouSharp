@@ -14,7 +14,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
 
         protected override float HitboxWidth => 64;
 
-        public Boss(Playfield.Playfield playfield) : base(playfield)
+        public Boss(Playfield.GamePlayfield playfield) : base(playfield)
         {
             // ReSharper disable once PossibleLossOfFraction
             Position = new Vector2(256 , 384 / 2);
