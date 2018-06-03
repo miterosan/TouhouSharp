@@ -20,6 +20,5 @@
     <Folder Include="Gameplay\Multi\" />
     <Folder Include="Gameplay\Single\" />
     <Folder Include="Networking\" />
-    <Folder Include="Gameplay\Projectiles\DrawableProjectiles\" />
   </ItemGroup>
 </Project>
