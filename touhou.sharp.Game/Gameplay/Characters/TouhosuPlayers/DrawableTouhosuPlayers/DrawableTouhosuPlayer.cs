@@ -28,7 +28,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
         //reset after healing is done
         public double EnergyGainMultiplier = 1;
 
-        public DrawableTouhosuPlayer(THSharpPlayfield playfield, TouhosuPlayer player) : base(playfield, player)
+        public DrawableTouhosuPlayer(Playfield.Playfield playfield, TouhosuPlayer player) : base(playfield, player)
         {
             TouhosuPlayer = player;
         }
@@ -105,7 +105,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
         }
 
         //TODO: I feel like this TODO should be obvious (figure out this bindable thing)
-        public static DrawableTouhosuPlayer GetDrawableTouhosuPlayer(THSharpPlayfield playfield, string name, Bindable<int> bindableInt = null)
+        public static DrawableTouhosuPlayer GetDrawableTouhosuPlayer(Playfield.Playfield playfield, string name, Bindable<int> bindableInt = null)
         {
             switch (name)
             {

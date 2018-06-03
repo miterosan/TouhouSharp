@@ -14,7 +14,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
 
         //private readonly List<DrawableTouhosuPlayer> leaderedPlayers = new List<DrawableTouhosuPlayer>();
 
-        public DrawableReimu(THSharpPlayfield playfield) : base(playfield, new Reimu())
+        public DrawableReimu(Playfield.Playfield playfield) : base(playfield, new Reimu())
         {
         }
 

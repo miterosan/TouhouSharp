@@ -18,7 +18,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPl
         private readonly Bindable<int> abstraction;
         #endregion
 
-        public DrawableRyukoy(THSharpPlayfield playfield, Bindable<int> abstraction) : base(playfield, new Ryukoy())
+        public DrawableRyukoy(Playfield.Playfield playfield, Bindable<int> abstraction) : base(playfield, new Ryukoy())
         {
             this.abstraction = abstraction;
             Abstraction = 3;

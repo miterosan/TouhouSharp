@@ -87,7 +87,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         private const double healing_max = 2d;
         #endregion
 
-        public DrawableTHSharpPlayer(THSharpPlayfield playfield, THSharpPlayer player) : base(playfield)
+        public DrawableTHSharpPlayer(Playfield.Playfield playfield, THSharpPlayer player) : base(playfield)
         {
             Player = player;
             //THSharpNetworkingClientHandler = vitaruNetworkingClientHandler;
@@ -507,7 +507,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         }
         #endregion
 
-        public static DrawableTHSharpPlayer GetDrawableTHSharpPlayer(THSharpPlayfield playfield, string name)
+        public static DrawableTHSharpPlayer GetDrawableTHSharpPlayer(Playfield.Playfield playfield, string name)
         {
             switch (name)
             {

@@ -16,7 +16,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
 
         protected override float HitboxWidth => 64;
 
-        public Boss(THSharpPlayfield playfield) : base(playfield)
+        public Boss(Playfield.Playfield playfield) : base(playfield)
         {
             Position = new Vector2(256 , 384 / 2);
             AlwaysPresent = true;

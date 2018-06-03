@@ -18,7 +18,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
 
         private Color4 characterColor;
 
-        public Enemy(THSharpPlayfield playfield) : base(playfield)
+        public Enemy(Playfield.Playfield playfield) : base(playfield)
         {
             AlwaysPresent = true;
 

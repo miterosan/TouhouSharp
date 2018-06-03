@@ -50,7 +50,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
 
         public bool Dead { get; protected set; }
 
-        protected readonly THSharpPlayfield THSharpPlayfield;
+        protected readonly Playfield.Playfield THSharpPlayfield;
 
         public int Abstraction { get; set; }
 
@@ -62,7 +62,7 @@ namespace touhou.sharp.Game.Gameplay.Characters
         protected float LastX;
         #endregion
 
-        protected Character(THSharpPlayfield playfield)
+        protected Character(Playfield.Playfield playfield)
         {
             THSharpPlayfield = playfield;
         }
@@ -339,14 +339,6 @@ namespace touhou.sharp.Game.Gameplay.Characters
         {
             Dead = true;
             Delete();
-        }
-
-        public virtual void Delete()
-        {
-            if (Parent is Container p)
-                p.Remove(this);
-
-            Dispose();
         }
 
         protected override void Dispose(bool isDisposing)
