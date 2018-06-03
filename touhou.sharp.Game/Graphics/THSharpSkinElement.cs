@@ -1,6 +1,4 @@
-﻿using osu.Framework.Audio;
-using osu.Framework.Configuration;
-using osu.Framework.Graphics.Textures;
+﻿using osu.Framework.Graphics.Textures;
 using osu.Framework.IO.Stores;
 using osu.Framework.Platform;
 using Symcol.Core.Graphics.Containers;
@@ -61,7 +59,7 @@ namespace touhou.sharp.Game.Graphics
         /// <param name="fileName"></param>
         /// <param name="storage"></param>
         /// <returns></returns>
-        private Texture GetSkinTextureElement(string fileName)
+        public Texture GetSkinTextureElement(string fileName)
         {
             Texture texture = null;
 
@@ -98,7 +96,7 @@ namespace touhou.sharp.Game.Graphics
         /// <param name="fileName"></param>
         /// <param name="storage"></param>
         /// <returns></returns>
-        private Texture GetTextureElement(string fileName)
+        public Texture GetTextureElement(string fileName)
         {
             Texture texture = null;
 

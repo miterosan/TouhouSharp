@@ -7,6 +7,8 @@ using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
 using osu.Framework.Timing;
 using Symcol.Core.Graphics.Sprites;
+using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
 {
@@ -40,7 +42,7 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
             };
         }
 
-        protected override void LoadAnimationSprites(TextureStore textures, Storage storage)
+        protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
         {
             if (PlayerVisuals == GraphicsOptions.StandardV2)
             {
@@ -60,14 +62,14 @@ namespace touhou.sharp.Game.Characters.TouhosuPlayers.DrawableTouhosuPlayers
                         UpdateRate = 100,
                         Textures = new Texture[]
                         {
-                            THSharpSkinElement.LoadSkinElement(Player.Name + " Kiai 0", storage),
-                            THSharpSkinElement.LoadSkinElement(Player.Name + " Kiai 1", storage),
-                            THSharpSkinElement.LoadSkinElement(Player.Name + " Kiai 2", storage),
-                            THSharpSkinElement.LoadSkinElement(Player.Name + " Kiai 3", storage),
-                            THSharpSkinElement.LoadSkinElement(Player.Name + " Kiai 4", storage),
-                            THSharpSkinElement.LoadSkinElement(Player.Name + " Kiai 5", storage),
-                            THSharpSkinElement.LoadSkinElement(Player.Name + " Kiai 6", storage),
-                            THSharpSkinElement.LoadSkinElement(Player.Name + " Kiai 7", storage),
+                            textures.LoadSkinElement(Player.Name + " Kiai 0", storage),
+                            textures.LoadSkinElement(Player.Name + " Kiai 1", storage),
+                            textures.LoadSkinElement(Player.Name + " Kiai 2", storage),
+                            textures.LoadSkinElement(Player.Name + " Kiai 3", storage),
+                            textures.LoadSkinElement(Player.Name + " Kiai 4", storage),
+                            textures.LoadSkinElement(Player.Name + " Kiai 5"),
+                            textures.LoadSkinElement(Player.Name + " Kiai 6"),
+                            textures.LoadSkinElement(Player.Name + " Kiai 7"),
                         }
                     },
                     Left = new AnimatedSprite()

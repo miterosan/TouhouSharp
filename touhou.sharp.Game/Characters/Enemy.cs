@@ -4,6 +4,8 @@ using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
 using OpenTK;
 using OpenTK.Graphics;
+using touhou.sharp.Game.Gameplay;
+using touhou.sharp.Game.Graphics;
 
 namespace touhou.sharp.Game.Characters
 {
@@ -72,11 +74,11 @@ namespace touhou.sharp.Game.Characters
             LastX = Position.X;
         }
 
-        protected override void LoadAnimationSprites(TextureStore textures, Storage storage)
+        protected override void LoadAnimationSprites(THSharpSkinElement textures, Storage storage)
         {
             base.LoadAnimationSprites(textures, storage);
-            RightSprite.Texture = THSharpSkinElement.LoadSkinElement(CharacterName, storage);
-            KiaiRightSprite.Texture = THSharpSkinElement.LoadSkinElement(CharacterName + "Kiai", storage);
+            RightSprite.Texture = textures.LoadSkinElement(CharacterName);
+            KiaiRightSprite.Texture = textures.LoadSkinElement(CharacterName + "Kiai");
         }
 
         protected override void Death()

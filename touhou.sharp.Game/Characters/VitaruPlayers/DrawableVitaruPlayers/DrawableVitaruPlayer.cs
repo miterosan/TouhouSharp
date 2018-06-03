@@ -155,8 +155,8 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
         {
             base.LoadAnimationSprites(textures, storage);
 
-            RightSprite.Texture = textures.LoadSkinElement(CharacterName + "Right", storage);
-            KiaiRightSprite.Texture = textures.LoadSkinElement(CharacterName + "KiaiRight", storage);
+            RightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Right", storage);
+            KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "KiaiRight", storage);
         }
 
         protected override void Update()
@@ -208,12 +208,6 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
             }
             else if (!Puppet)
                 Cursor.Position = THSharpCursor.CenterCircle.ToSpaceOfOtherDrawable(Vector2.Zero, Parent) + new Vector2(6);
-
-            if (nextHalfBeat <= Time.Current && nextHalfBeat != -1)
-                OnHalfBeat();
-
-            if (nextQuarterBeat <= Time.Current && nextQuarterBeat != -1)
-                OnQuarterBeat();
         }
 
         protected override void ParseBullet(DrawableBullet bullet)
@@ -238,9 +232,6 @@ namespace touhou.sharp.Game.Characters.VitaruPlayers.DrawableVitaruPlayers
                 if (add)
                     HealingBullets.Add(new HealingBullet(bullet, edgeDistance));
             }
-
-            if (Gamemode == Gamemodes.Dodge)
-                edgeDistance *= 1.5f;
 
             if (edgeDistance <= 64 && bullet.ScoreZone < 300)
                 bullet.ScoreZone = 300;
